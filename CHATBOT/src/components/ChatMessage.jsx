@@ -1,4 +1,6 @@
 import ChatBotIcon from "./ChatBotIcon";
+import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
 
 const ChatMessage = ({ chat }) => {
   return (
@@ -6,7 +8,9 @@ const ChatMessage = ({ chat }) => {
       className={`message ${chat.role === "model" ? "bot" : "user"}-message`}
     >
       {chat.role === "model" && <ChatBotIcon />}
-      <p className="message-text">{chat.text}</p>
+      <div className="message-text">
+        <ReactMarkdown remarkPlugins={[remarkGfm]}>{chat.text}</ReactMarkdown>
+      </div>
     </div>
   );
 };
