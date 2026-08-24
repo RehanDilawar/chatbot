@@ -4,6 +4,7 @@ import remarkGfm from "remark-gfm";
 
 const ChatMessage = ({ chat }) => {
   return (
+    !chat.hideInChat && (
     <div
       className={`message ${chat.role === "model" ? "bot" : "user"}-message`}
     >
@@ -12,7 +13,8 @@ const ChatMessage = ({ chat }) => {
         <ReactMarkdown remarkPlugins={[remarkGfm]}>{chat.text}</ReactMarkdown>
       </div>
     </div>
-  );
+  )
+)
 };
 
 export default ChatMessage;

@@ -1,6 +1,90 @@
 /* Import Google Fonts */
 @import url("https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,100..900&display=swap");
 
+:root {
+  --app-bg: #fdfdfd;
+  --panel-bg: #fff;
+  --header-bg: linear-gradient(#8400ff, #e28bcc);
+  --header-text: #fff;
+  --header-icon-bg: #fff;
+  --header-icon-fill: #8400ff;
+  --theme-sel-bg: rgba(255, 255, 255, 0.2);
+  --theme-sel-text: #fff;
+  --text-main: #000;
+  --border: #e5e5e5;
+  --user-bg: #8400ff;
+  --user-text: #fff;
+  --bot-msg-bg: #fff;
+  --bot-msg-text: #000;
+  --bot-icon-bg: #8400ff;
+  --bot-icon-fill: #fff;
+  --input-bg: #fff;
+  --input-border: #e5e5e5;
+}
+
+[data-theme="dark"] {
+  --app-bg: #121212;
+  --panel-bg: #1e1e1e;
+  --header-bg: #1e1e1e;
+  --header-text: #fff;
+  --header-icon-bg: #333;
+  --header-icon-fill: #bb86fc;
+  --theme-sel-bg: #333;
+  --theme-sel-text: #ccc;
+  --text-main: #fff;
+  --border: #333;
+  --user-bg: #bb86fc;
+  --user-text: #000;
+  --bot-msg-bg: #2c2c2c;
+  --bot-msg-text: #e0e0e0;
+  --bot-icon-bg: #bb86fc;
+  --bot-icon-fill: #000;
+  --input-bg: #2c2c2c;
+  --input-border: #333;
+}
+
+[data-theme="vscode"] {
+  --app-bg: #1e1e1e;
+  --panel-bg: #1e1e1e;
+  --header-bg: #252526;
+  --header-text: #cccccc;
+  --header-icon-bg: #3c3c3c;
+  --header-icon-fill: #007acc;
+  --theme-sel-bg: #3c3c3c;
+  --theme-sel-text: #cccccc;
+  --text-main: #d4d4d4;
+  --border: #333333;
+  --user-bg: #007acc;
+  --user-text: #ffffff;
+  --bot-msg-bg: #252526;
+  --bot-msg-text: #d4d4d4;
+  --bot-icon-bg: #007acc;
+  --bot-icon-fill: #ffffff;
+  --input-bg: #3c3c3c;
+  --input-border: #3c3c3c;
+}
+
+[data-theme="antigravity"] {
+  --app-bg: #080c10;
+  --panel-bg: #101820;
+  --header-bg: linear-gradient(135deg, #09121c, #1f2b38);
+  --header-text: #00ffcc;
+  --header-icon-bg: rgba(0, 255, 204, 0.1);
+  --header-icon-fill: #00ffcc;
+  --theme-sel-bg: rgba(0, 255, 204, 0.1);
+  --theme-sel-text: #00ffcc;
+  --text-main: #e0e0e0;
+  --border: rgba(0, 255, 204, 0.4);
+  --user-bg: #00ffcc;
+  --user-text: #080c10;
+  --bot-msg-bg: #1f2b38;
+  --bot-msg-text: #00ffcc;
+  --bot-icon-bg: #ff0055;
+  --bot-icon-fill: #fff;
+  --input-bg: rgba(0, 255, 204, 0.05);
+  --input-border: rgba(0, 255, 204, 0.4);
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -14,28 +98,33 @@ body {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background: linear-gradient(#e28bcc, #8400ff);
+  /* background defaults handled by .container */
+}
+
+.container {
+  width: 100vw;
+  min-height: 100vh;
+  background: var(--app-bg);
+  transition: background 0.3s ease;
 }
 
 .chatbot-popup {
   position: relative;
-  width: 420px;
-  background: #fff;
-  border-radius: 15px;
-  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.15);
-  overflow: hidden;
+  width: 100vw;
+  height: 100vh;
+  background: var(--panel-bg);
   display: flex;
   flex-direction: column;
-  height: 600px;
 }
 
 .chatbot-popup .chat-header {
-  background: linear-gradient(#8400ff, #e28bcc);
-  padding: 20px;
+  background: var(--header-bg);
+  padding: 20px max(20px, calc((100vw - 1000px) / 2));
   display: flex;
   justify-content: space-between;
   align-items: center;
-  color: #fff;
+  color: var(--header-text);
+  border-bottom: 2px solid var(--border);
 }
 
 .chat-header .header-info {
@@ -48,43 +137,46 @@ body {
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  background: #fff;
+  background: var(--header-icon-bg);
   padding: 5px;
-  fill: #8400ff;
+  fill: var(--header-icon-fill);
   flex-shrink: 0;
 }
 
 .header-info .logo-text {
   font-size: 1.3rem;
   font-weight: 600;
-  color: #fff;
+  color: var(--header-text);
 }
 
-.chat-header .material-symbols-rounded {
-  background: none;
-  border: none;
-  color: #fff;
-  font-size: 1.9rem;
+.theme-selector {
+  background: var(--theme-sel-bg);
+  color: var(--theme-sel-text);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 8px 12px;
+  font-size: 0.9rem;
   cursor: pointer;
-  padding: 5px;
-  border-radius: 50%;
-  transition: background-color 0.2s ease;
-  margin-right: -5px;
+  outline: none;
+  backdrop-filter: blur(5px);
+}
+.theme-selector:focus {
+  border-color: var(--bot-icon-bg);
 }
 
-.chat-header .material-symbols-rounded:hover {
-  background-color: rgba(203, 141, 228, 0.596);
+.theme-selector option {
+  background: var(--panel-bg);
+  color: var(--text-main);
 }
 
 .chat-body {
   flex: 1;
-  padding: 25px 20px 20px;
+  padding: 40px max(20px, calc((100vw - 1000px) / 2));
   overflow-y: auto;
-  height: 400px;
   display: flex;
   flex-direction: column;
   scrollbar-width: thin;
-  scrollbar-color: #e3dce9 transparent;
+  scrollbar-color: var(--input-border) transparent;
 }
 
 .chat-body .message {
@@ -99,16 +191,16 @@ body {
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  fill: #fff;
+  fill: var(--bot-icon-fill);
   padding: 5px;
-  background: #8400ff;
+  background: var(--bot-icon-bg);
   flex-shrink: 0;
   align-self: flex-end;
 }
 
 .chat-body .message .message-text {
-  background: #8400ff;
-  color: #fff;
+  background: var(--user-bg);
+  color: var(--user-text);
   border-radius: 15px 15px 15px 0;
   padding: 12px 16px;
   font-size: 0.95rem;
@@ -116,6 +208,7 @@ body {
 }
 .chat-body .message .message-text p {
   margin-bottom: 0.5em;
+  color: inherit;
 }
 .chat-body .message .message-text > *:last-child {
   margin-bottom: 0px;
@@ -126,12 +219,12 @@ body {
   margin-bottom: 0.5em;
 }
 .chat-body .message .message-text code {
-  background: rgba(0, 0, 0, 0.1);
+  background: rgba(0, 0, 0, 0.2);
   padding: 2px 4px;
   border-radius: 4px;
 }
 .chat-body .message .message-text pre {
-  background: rgba(0, 0, 0, 0.1);
+  background: rgba(0, 0, 0, 0.2);
   padding: 10px;
   border-radius: 8px;
   overflow-x: auto;
@@ -142,11 +235,8 @@ body {
   padding: 0;
 }
 .chat-body .bot-message .message-text {
-  background: #fff;
-  color: #000000;
-  border-radius: 15px 15px 15px 0;
-  padding: 12px 16px;
-  font-size: 0.95rem;
+  background: var(--bot-msg-bg);
+  color: var(--bot-msg-text);
 }
 
 .chat-body .user-message {
@@ -154,19 +244,17 @@ body {
 }
 
 .chat-body .user-message .message-text {
-  background: #8400ff;
-  color: #fff;
+  background: var(--user-bg);
+  color: var(--user-text);
   border-radius: 15px 15px 0 15px;
-  padding: 12px 16px;
-  font-size: 0.95rem;
 }
 
 .chat-footer {
   position: sticky;
   bottom: 0;
-  padding: 20px;
-  background: #fff;
-  border-top: 1px solid #e5e5e5;
+  padding: 20px max(20px, calc((100vw - 1000px) / 2));
+  background: var(--panel-bg);
+  border-top: 1px solid var(--border);
 }
 
 .chat-footer .chat-form {
@@ -177,30 +265,37 @@ body {
 .chat-footer .message-input {
   flex: 1;
   padding: 12px 16px;
-  border: 1px solid #e5e5e5;
+  background: var(--input-bg);
+  color: var(--text-main);
+  border: 1px solid var(--input-border);
   border-radius: 20px;
   font-size: 0.95rem;
   outline: none;
 }
 
 .chat-footer .message-input:focus {
-  border-color: #8400ff;
+  border-color: var(--bot-icon-bg);
 }
 
 .chat-footer .material-symbols-rounded {
-  background: #8400ff;
+  background: var(--bot-icon-bg);
   border: none;
-  color: #fff;
+  color: var(--bot-icon-fill);
   font-size: 1.9rem;
   cursor: pointer;
   border-radius: 50%;
-  transition: background-color 0.2s ease;
+  transition:
+    background-color 0.2s ease,
+    transform 0.2s ease;
   width: 45px;
   height: 45px;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
+}
+.chat-footer .material-symbols-rounded:hover {
+  transform: scale(1.05);
 }
 
 /* Hide button when input is empty (relies on 'required' attribute) */
