@@ -83,6 +83,8 @@ body {
   height: 400px;
   display: flex;
   flex-direction: column;
+  scrollbar-width: thin;
+  scrollbar-color: #e3dce9 transparent;
 }
 
 .chat-body .message {
