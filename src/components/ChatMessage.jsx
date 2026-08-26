@@ -1,4 +1,4 @@
-import ChatBotIcon from "./ChatBotIcon";
+import ChatBotIcon from "./ChatbotIcon";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 
