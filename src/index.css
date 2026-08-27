@@ -169,6 +169,40 @@ body {
   color: var(--text-main);
 }
 
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.github-link {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  text-decoration: none;
+  opacity: 0.85;
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease;
+}
+
+.github-link:hover {
+  opacity: 1;
+  transform: scale(1.08);
+}
+
+.github-icon {
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+}
+
+.github-label {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--header-text);
+}
+
 .chat-body {
   flex: 1;
   padding: 40px max(20px, calc((100vw - 1000px) / 2));

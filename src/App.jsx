@@ -5,11 +5,13 @@ import { useState, useRef, useEffect } from "react";
 import { companyInfo } from "./components/companyInfo";
 const App = () => {
   const chatBodyRef = useRef(null);
-  const [chatHistory, setChatHistory] = useState([{
-    hideInChat: true,
-    role: "model",
-    text: companyInfo,
-  }]);
+  const [chatHistory, setChatHistory] = useState([
+    {
+      hideInChat: true,
+      role: "model",
+      text: companyInfo,
+    },
+  ]);
   const [theme, setTheme] = useState("light");
   const generatebotResponse = async (history) => {
     history = history.map(({ role, text }) => ({ role, parts: [{ text }] }));
@@ -57,16 +59,45 @@ const App = () => {
             <ChatBotIcon />
             <h2 className="logo-text">Chatbot</h2>
           </div>
-          <select
-            value={theme}
-            onChange={(e) => setTheme(e.target.value)}
-            className="theme-selector"
-          >
-            <option value="light">Light (Default)</option>
-            <option value="dark">Dark Theme</option>
-            <option value="vscode">VS Code</option>
-            <option value="antigravity">Antigravity</option>
-          </select>
+          <div className="header-actions">
+            <a
+              href="https://github.com/rehandilawar"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="github-link"
+              title="Creator: @rehandilawar"
+            >
+              <img
+                src="https://skillicons.dev/icons?i=github"
+                alt="Creator GitHub"
+                className="github-icon"
+              />
+            </a>
+            <a
+              href="https://github.com/RehanDilawar/chatbot"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="github-link"
+              title="Source Code"
+            >
+              <img
+                src="https://skillicons.dev/icons?i=github"
+                alt="Source Code"
+                className="github-icon"
+              />
+              <span className="github-label">Source</span>
+            </a>
+            <select
+              value={theme}
+              onChange={(e) => setTheme(e.target.value)}
+              className="theme-selector"
+            >
+              <option value="light">Light (Default)</option>
+              <option value="dark">Dark Theme</option>
+              <option value="vscode">VS Code</option>
+              <option value="antigravity">Antigravity</option>
+            </select>
+          </div>
         </div>
         <div ref={chatBodyRef} className="chat-body">
           <div className="message bot-message">
