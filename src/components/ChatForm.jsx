@@ -14,7 +14,7 @@ const ChatForm = ({chatHistory, setChatHistory, generatebotResponse}) => {
     // Add thinking message to chat history
     setTimeout(() => {
       setChatHistory((history) => [...history, { role: "model", text: "Thinking..." }]);
-      generatebotResponse([...chatHistory, { role: "user", text: `You are a helpful assistant for Aroma Beans Coffee. Answer the following question based on the company info: ${userMessage}` }]);
+      generatebotResponse([...chatHistory, { role: "user", text: userMessage }]);
     }, 700);
   }
   return (

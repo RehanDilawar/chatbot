@@ -4,12 +4,16 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
+    "predev": "node scripts/parse-docx.js",
     "dev": "vite",
+    "prebuild": "node scripts/parse-docx.js",
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview"
   },
   "dependencies": {
+    "@google/genai": "^2.19.0",
+    "mammoth": "^1.12.1",
     "react": "^19.2.8",
     "react-dom": "^19.2.8",
     "react-markdown": "^10.1.0",

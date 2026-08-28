@@ -2,43 +2,68 @@ import ChatBotIcon from "./components/ChatbotIcon";
 import ChatForm from "./components/ChatForm";
 import ChatMessage from "./components/ChatMessage";
 import { useState, useRef, useEffect } from "react";
-import { companyInfo } from "./components/companyInfo";
 const App = () => {
   const chatBodyRef = useRef(null);
-  const [chatHistory, setChatHistory] = useState([
-    {
-      hideInChat: true,
-      role: "model",
-      text: companyInfo,
-    },
-  ]);
+  const [chatHistory, setChatHistory] = useState([]);
   const [theme, setTheme] = useState("light");
   const generatebotResponse = async (history) => {
-    history = history.map(({ role, text }) => ({ role, parts: [{ text }] }));
+    const formattedHistory = history.map(({ role, text }) => ({ role, parts: [{ text }] }));
     const requestOptions = {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ contents: history }),
+      body: JSON.stringify({ messages: formattedHistory }),
     };
     try {
       const response = await fetch(
-        import.meta.env.VITE_API_URL,
+        "/api/chat",
         requestOptions,
       );
-      const data = await response.json();
+
       if (!response.ok) {
-        throw new Error(data.error.message || "Failed to generate response");
+        const errorText = await response.text();
+        let errMsg = "Failed to generate response";
+        try {
+          const errJson = JSON.parse(errorText);
+          errMsg = errJson.error || errMsg;
+        } catch (_) {}
+        throw new Error(errMsg);
       }
-      const botResponse = data.candidates[0].content.parts[0].text;
-      setChatHistory((history) => [
-        ...history.filter((msg) => msg.text !== "Thinking..."),
-        { role: "model", text: botResponse },
-      ]);
-      console.log(data);
+
+      const reader = response.body.getReader();
+      const decoder = new TextDecoder();
+      let botResponse = "";
+      let initialized = false;
+
+      while (true) {
+        const { done, value } = await reader.read();
+        if (done) break;
+
+        const chunk = decoder.decode(value, { stream: true });
+        botResponse += chunk;
+
+        if (!initialized) {
+          setChatHistory((history) => [
+            ...history.filter((msg) => msg.text !== "Thinking..."),
+            { role: "model", text: botResponse },
+          ]);
+          initialized = true;
+        } else {
+          setChatHistory((history) => {
+            const updatedHistory = [...history];
+            for (let i = updatedHistory.length - 1; i >= 0; i--) {
+              if (updatedHistory[i].role === "model") {
+                updatedHistory[i] = { ...updatedHistory[i], text: botResponse };
+                break;
+              }
+            }
+            return updatedHistory;
+          });
+        }
+      }
     } catch (error) {
-      console.log(error);
+      console.error(error);
       setChatHistory((history) => [
         ...history.filter((msg) => msg.text !== "Thinking..."),
         { role: "model", text: "Sorry, I couldn't process that right now." },
