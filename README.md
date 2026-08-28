@@ -5,7 +5,7 @@
 [![JavaScript](https://img.shields.io/badge/Language-JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
 [![License](https://img.shields.io/badge/License-MIT-blue?style=for-the-badge)](LICENSE)
 
-A modern, responsive, and deeply customizable AI Chatbot interface built with **React** and **Vite**. This application connects seamlessly to generative AI models to provide an intelligent conversational experience. It features real-time chat history management, rich markdown rendering for text responses, and a fully dynamic theming engine offering exclusive aesthetics like "VS Code" and "Antigravity".
+A modern, responsive, and deeply customizable AI Chatbot interface built with **React** and **Vite** powered by **Vercel Serverless Functions**. This application connects securely to the Gemini API (`gemini-3.5-flash-lite`) to answer user questions using custom local documentation loaded from a Word document (`.docx`).
 
 > **Live Demo:** [Experience the Chatbot on Vercel!](https://chatbot-rehandilawar.vercel.app/)
 
@@ -13,15 +13,17 @@ A modern, responsive, and deeply customizable AI Chatbot interface built with **
 
 ## ✨ Features
 
-- 🧠 **Smart AI Integration**: Built-in architecture to communicate with advanced LLMs via REST API, maintaining full conversation context and history.
+- 🧠 **Secure AI Proxy**: Routes all requests through a server-side Vercel Serverless Function to keep Gemini API credentials 100% hidden and secure.
+- ⚡ **Real-Time Streaming**: Stream responses chunk-by-chunk in real-time to the React client for a fast, conversational feel.
+- 📁 **Automated Document Knowledge Base**: Converts and cleans a massive `data.docx` Word file into structural HTML (discarding binary images to save tokens) automatically at build/dev time.
+- 📊 **Context Quota Protection**: Implements a sliding window of the **last 8 messages** (4 user turns + 4 assistant responses) to control token accumulation and stay within Gemini free tier limits.
 - 🎨 **Dynamic Theming Engine**: Switch instantly between four carefully crafted UI themes:
   - ☀️ **Light** (Clean & bright default UI)
   - 🌙 **Dark** (Modern styling that's easy on the eyes)
-  - � **VS Code** (Developer-focused dark aesthetic)
+  - 💻 **VS Code** (Developer-focused dark aesthetic)
   - 🚀 **Antigravity** (Premium, vibrant interface design)
-- � **Advanced Markdown Support**: Utilizes `react-markdown` and `remark-gfm` to brilliantly render code snippets, tables, lists, and formatted text directly within chat bubbles.
+- 📝 **Advanced Markdown Support**: Utilizes `react-markdown` and `remark-gfm` to render code snippets, tables, lists, and formatted text directly within chat bubbles.
 - 📱 **Fully Responsive UI**: A mobile-first, floating chat widget design built with modern CSS, ensuring pixel-perfect functionality across desktops, tablets, and smartphones.
-- ⚙️ **Custom Injectable Context**: Pre-injects base system prompts via hidden `companyInfo` context payloads, allowing the chatbot to act as a deeply tailored assistant for any specific business.
 
 ---
 
@@ -34,9 +36,11 @@ A modern, responsive, and deeply customizable AI Chatbot interface built with **
 </p>
 
 - **Frontend Core**: React 19, Vite 8
+- **Backend API**: Node.js, Vercel Serverless Functions
+- **GenAI SDK**: `@google/genai` (Gemini API Integration)
+- **Document Parsing**: `mammoth` (Word document HTML extractor)
 - **Styling**: Modern Vanilla CSS, CSS Variables (`data-theme`)
 - **Text Rendering**: `react-markdown`, `remark-gfm`
-- **Hosting & Deployment**: Vercel
 
 ---
 
@@ -44,7 +48,10 @@ A modern, responsive, and deeply customizable AI Chatbot interface built with **
 
 - **[Node.js](https://nodejs.org/)** (`v18.0.0` or higher)
 - **npm** (bundled with Node.js)
-- Supported local environment to load API credentials.
+- **[Vercel CLI](https://vercel.com/cli)** (required to run and test serverless function API endpoints locally)
+  ```bash
+  npm install -g vercel
+  ```
 
 ---
 
@@ -57,37 +64,43 @@ git clone https://github.com/rehandilawar/chatbot.git
 cd chatbot
 ```
 
-### 2. Environment Setup
+### 2. Configure Your Documentation
+Place your Word documentation file inside the `api` folder:
+- Path: `api/data.docx` *(This file will be automatically parsed to `api/data.html` before running or building).*
 
-Create a `.env` file in the root directory and add your AI endpoint configuration:
+### 3. Environment Setup
+
+Create a `.env` file in the root directory:
 
 ```env
-VITE_API_URL="your_ai_api_endpoint_here"
+VITE_API_URL="https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash-lite:generateContent?key=YOUR_API_KEY_HERE"
 ```
+*(The backend is built to dynamically extract the API key from `VITE_API_URL` during local development, or look for `GEMINI_API_KEY` when deployed).*
 
-### 3. Install Dependencies
+### 4. Install Dependencies
 
 ```bash
 npm install
 ```
 
-### 4. Run Development Server
+### 5. Run Local Development Server
+To run both the Vite frontend dev server and the backend API serverless functions together, start the local Vercel dev environment:
 
 ```bash
-npm run dev
+vercel dev
 ```
 
-The Vite dev server will spin up on `http://localhost:5173`. Open it in your default browser and start chatting!
+The server will launch on `http://localhost:3000`. Open it in your default browser and start chatting!
 
 ---
 
 ## 🌐 Deployment
 
-The application is optimized for seamless deployment on Vercel.
+The application is fully optimized for seamless deployment on Vercel.
 
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/rehandilawar/chatbot)
 
-**🔗 Live Application:** [https://chatbot-rehandilawar.vercel.app/](https://chatbot-rehandilawar.vercel.app/)
+*Remember to add your **`GEMINI_API_KEY`** environment variable inside your project settings on the Vercel Dashboard.*
 
 ---
 
