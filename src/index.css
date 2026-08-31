@@ -169,38 +169,369 @@ body {
   color: var(--text-main);
 }
 
-.header-actions {
+/* =============================================
+   SIDEBAR TOGGLE BUTTON
+   ============================================= */
+.sidebar-toggle {
+  position: fixed;
+  top: 18px;
+  right: 20px;
+  z-index: 1100;
+  width: 44px;
+  height: 44px;
+  border: none;
+  border-radius: 12px;
+  background: var(--header-bg);
+  background: linear-gradient(135deg, #8400ff, #e28bcc);
+  cursor: pointer;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 10px;
-}
-
-.github-link {
-  display: flex;
-  align-items: center;
+  justify-content: center;
   gap: 5px;
+  padding: 10px;
+  box-shadow: 0 4px 20px rgba(132, 0, 255, 0.35);
+  transition: box-shadow 0.3s ease, transform 0.2s ease;
+}
+
+[data-theme="dark"] .sidebar-toggle {
+  background: linear-gradient(135deg, #1e1e1e, #333);
+  box-shadow: 0 4px 20px rgba(187, 134, 252, 0.35);
+}
+[data-theme="vscode"] .sidebar-toggle {
+  background: linear-gradient(135deg, #252526, #007acc);
+  box-shadow: 0 4px 20px rgba(0, 122, 204, 0.4);
+}
+[data-theme="antigravity"] .sidebar-toggle {
+  background: linear-gradient(135deg, #09121c, #00ffcc22);
+  border: 1px solid rgba(0, 255, 204, 0.4);
+  box-shadow: 0 4px 20px rgba(0, 255, 204, 0.25);
+}
+
+.sidebar-toggle:hover {
+  transform: scale(1.07);
+  box-shadow: 0 6px 28px rgba(132, 0, 255, 0.5);
+}
+
+.sidebar-toggle .bar {
+  display: block;
+  width: 20px;
+  height: 2px;
+  background: #fff;
+  border-radius: 2px;
+  transition: transform 0.35s cubic-bezier(0.77, 0.2, 0.05, 1),
+              opacity 0.25s ease,
+              width 0.3s ease;
+  transform-origin: center;
+}
+
+/* Animate bars into X when open */
+.sidebar-toggle.open .bar:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+.sidebar-toggle.open .bar:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0);
+}
+.sidebar-toggle.open .bar:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* =============================================
+   SIDEBAR BACKDROP
+   ============================================= */
+.sidebar-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 1050;
+  background: rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(3px);
+  animation: fadeInBackdrop 0.25s ease forwards;
+}
+
+@keyframes fadeInBackdrop {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* =============================================
+   SIDEBAR PANEL
+   ============================================= */
+.sidebar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100vh;
+  width: 300px;
+  z-index: 1060;
+  background: var(--panel-bg);
+  border-left: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  box-shadow: -8px 0 40px rgba(0, 0, 0, 0.2);
+  transform: translateX(110%);
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+}
+
+.sidebar--open {
+  transform: translateX(0);
+}
+
+/* Accent stripe at top */
+.sidebar::before {
+  content: "";
+  display: block;
+  height: 4px;
+  background: linear-gradient(90deg, #8400ff, #e28bcc, #8400ff);
+  background-size: 200% 100%;
+  animation: shimmer 3s linear infinite;
+  flex-shrink: 0;
+}
+
+[data-theme="dark"] .sidebar::before {
+  background: linear-gradient(90deg, #bb86fc, #6200ea, #bb86fc);
+  background-size: 200% 100%;
+}
+[data-theme="vscode"] .sidebar::before {
+  background: linear-gradient(90deg, #007acc, #252526, #007acc);
+  background-size: 200% 100%;
+}
+[data-theme="antigravity"] .sidebar::before {
+  background: linear-gradient(90deg, #00ffcc, #ff0055, #00ffcc);
+  background-size: 200% 100%;
+}
+
+@keyframes shimmer {
+  0%   { background-position: 0% 0%; }
+  100% { background-position: 200% 0%; }
+}
+
+/* =============================================
+   SIDEBAR HEADER
+   ============================================= */
+.sidebar-header {
+  padding: 28px 24px 20px;
+}
+
+.sidebar-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.sidebar-logo svg {
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+}
+
+.sidebar-logo span {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--text-main);
+  letter-spacing: 0.03em;
+}
+
+/* =============================================
+   SIDEBAR DIVIDER
+   ============================================= */
+.sidebar-divider {
+  height: 1px;
+  background: var(--border);
+  margin: 0 20px;
+  opacity: 0.6;
+}
+
+/* =============================================
+   SIDEBAR NAV LINKS
+   ============================================= */
+.sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 20px 16px;
+}
+
+.sidebar-link {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 13px 16px;
+  border-radius: 14px;
   text-decoration: none;
-  opacity: 0.85;
-  transition:
-    opacity 0.2s ease,
-    transform 0.2s ease;
+  color: var(--text-main);
+  background: transparent;
+  transition: background 0.22s ease, transform 0.18s ease, box-shadow 0.22s ease;
+  position: relative;
+  overflow: hidden;
 }
 
-.github-link:hover {
+.sidebar-link::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(132, 0, 255, 0.1), rgba(226, 139, 204, 0.08));
+  opacity: 0;
+  transition: opacity 0.22s ease;
+  border-radius: inherit;
+}
+
+.sidebar-link:hover::before {
   opacity: 1;
-  transform: scale(1.08);
 }
 
-.github-icon {
-  width: 28px;
-  height: 28px;
-  border-radius: 6px;
+.sidebar-link:hover {
+  transform: translateX(-3px);
+  box-shadow: 0 4px 16px rgba(132, 0, 255, 0.12);
 }
 
-.github-label {
-  font-size: 0.8rem;
+[data-theme="dark"] .sidebar-link:hover {
+  box-shadow: 0 4px 16px rgba(187, 134, 252, 0.15);
+}
+[data-theme="antigravity"] .sidebar-link:hover {
+  box-shadow: 0 4px 16px rgba(0, 255, 204, 0.15);
+}
+
+.sidebar-link__icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #8400ff22, #e28bcc22);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: background 0.22s ease, transform 0.22s ease;
+}
+
+[data-theme="dark"] .sidebar-link__icon {
+  background: linear-gradient(135deg, rgba(187, 134, 252, 0.15), rgba(98, 0, 234, 0.12));
+}
+[data-theme="vscode"] .sidebar-link__icon {
+  background: linear-gradient(135deg, rgba(0, 122, 204, 0.15), rgba(37, 37, 38, 0.2));
+}
+[data-theme="antigravity"] .sidebar-link__icon {
+  background: linear-gradient(135deg, rgba(0, 255, 204, 0.1), rgba(255, 0, 85, 0.08));
+}
+
+.sidebar-link:hover .sidebar-link__icon {
+  transform: scale(1.1) rotate(-5deg);
+}
+
+.sidebar-link__icon svg {
+  width: 18px;
+  height: 18px;
+  color: var(--user-bg);
+  fill: var(--user-bg);
+}
+
+.sidebar-link__text {
+  flex: 1;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-main);
+}
+
+.sidebar-link__badge {
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--user-bg);
+  background: linear-gradient(135deg, rgba(132, 0, 255, 0.1), rgba(226, 139, 204, 0.1));
+  border: 1px solid rgba(132, 0, 255, 0.2);
+  border-radius: 20px;
+  padding: 3px 10px;
+  white-space: nowrap;
+  transition: background 0.22s ease, color 0.22s ease;
+}
+
+[data-theme="dark"] .sidebar-link__badge {
+  background: rgba(187, 134, 252, 0.1);
+  border-color: rgba(187, 134, 252, 0.25);
+}
+[data-theme="antigravity"] .sidebar-link__badge {
+  background: rgba(0, 255, 204, 0.08);
+  border-color: rgba(0, 255, 204, 0.3);
+}
+
+/* =============================================
+   SIDEBAR THEME SECTION
+   ============================================= */
+.sidebar-section {
+  padding: 20px 20px;
+}
+
+.sidebar-section__label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-main);
+  opacity: 0.5;
+  margin-bottom: 12px;
+}
+
+.sidebar-themes {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.sidebar-theme-btn {
+  display: flex;
+  align-items: center;
+  padding: 10px 14px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text-main);
+  font-size: 0.88rem;
   font-weight: 500;
-  color: var(--header-text);
+  cursor: pointer;
+  transition: background 0.2s ease, border-color 0.2s ease, transform 0.15s ease;
+  text-align: left;
+}
+
+.sidebar-theme-btn:hover {
+  background: var(--bot-msg-bg);
+  transform: translateX(3px);
+}
+
+.sidebar-theme-btn.active {
+  background: linear-gradient(135deg, rgba(132, 0, 255, 0.12), rgba(226, 139, 204, 0.1));
+  border-color: rgba(132, 0, 255, 0.4);
+  color: var(--user-bg);
+  font-weight: 700;
+}
+
+[data-theme="dark"] .sidebar-theme-btn.active {
+  background: rgba(187, 134, 252, 0.12);
+  border-color: rgba(187, 134, 252, 0.4);
+  color: #bb86fc;
+}
+[data-theme="vscode"] .sidebar-theme-btn.active {
+  background: rgba(0, 122, 204, 0.12);
+  border-color: rgba(0, 122, 204, 0.4);
+  color: #007acc;
+}
+[data-theme="antigravity"] .sidebar-theme-btn.active {
+  background: rgba(0, 255, 204, 0.08);
+  border-color: rgba(0, 255, 204, 0.4);
+  color: #00ffcc;
+}
+
+/* =============================================
+   SIDEBAR FOOTER
+   ============================================= */
+.sidebar-footer {
+  margin-top: auto;
+  padding: 20px 24px;
+  border-top: 1px solid var(--border);
+  text-align: center;
+  font-size: 0.78rem;
+  color: var(--text-main);
+  opacity: 0.45;
 }
 
 .chat-body {
