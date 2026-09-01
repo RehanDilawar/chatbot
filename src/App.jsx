@@ -2,6 +2,7 @@ import ChatBotIcon from "./components/ChatbotIcon";
 import ChatForm from "./components/ChatForm";
 import ChatMessage from "./components/ChatMessage";
 import Sidebar from "./components/Sidebar";
+import WelcomePage from "./components/WelcomePage";
 import pmaLogo from "./assets/PMA_Kakul_logo.png";
 import { useState, useRef, useEffect } from "react";
 
@@ -9,6 +10,7 @@ const App = () => {
   const chatBodyRef = useRef(null);
   const [chatHistory, setChatHistory] = useState([]);
   const [theme, setTheme] = useState("light");
+  const [showWelcome, setShowWelcome] = useState(true);
 
   const generatebotResponse = async (history) => {
     const formattedHistory = history.map(({ role, text }) => ({
@@ -76,47 +78,59 @@ const App = () => {
   };
 
   useEffect(() => {
-    chatBodyRef.current.scrollTo({
-      top: chatBodyRef.current.scrollHeight,
-      behavior: "smooth",
-    });
-  }, [chatHistory]);
+    if (!showWelcome && chatBodyRef.current) {
+      chatBodyRef.current.scrollTo({
+        top: chatBodyRef.current.scrollHeight,
+        behavior: "smooth",
+      });
+    }
+  }, [chatHistory, showWelcome]);
 
   return (
     <div className="container" data-theme={theme}>
-      {/* Animated Sidebar */}
-      <Sidebar theme={theme} setTheme={setTheme} />
+      {showWelcome ? (
+        <WelcomePage
+          onDiveIn={() => setShowWelcome(false)}
+          theme={theme}
+          setTheme={setTheme}
+        />
+      ) : (
+        <>
+          {/* Animated Sidebar */}
+          <Sidebar theme={theme} setTheme={setTheme} />
 
-      <div className="chatbot-popup">
-        <div className="chat-header">
-          <img src={pmaLogo} alt="PMA Kakul Logo" className="header-logo" />
-          <div className="header-info">
-            <ChatBotIcon />
-            <h2 className="logo-text">GC Chatbot</h2>
-          </div>
-        </div>
-        <div ref={chatBodyRef} className="chat-body">
-          <div className="message bot-message">
-            <ChatBotIcon />
-            <p className="message-text">
-              Hello 🖐!
-              <br />
-              How can I help you today?
-            </p>
-          </div>
+          <div className="chatbot-popup chatbot-popup--enter">
+            <div className="chat-header">
+              <img src={pmaLogo} alt="PMA Kakul Logo" className="header-logo" />
+              <div className="header-info">
+                <ChatBotIcon />
+                <h2 className="logo-text">GC Chatbot</h2>
+              </div>
+            </div>
+            <div ref={chatBodyRef} className="chat-body">
+              <div className="message bot-message">
+                <ChatBotIcon />
+                <p className="message-text">
+                  Hello 🖐!
+                  <br />
+                  How can I help you today?
+                </p>
+              </div>
 
-          {chatHistory.map((chat, index) => (
-            <ChatMessage key={index} chat={chat} />
-          ))}
-        </div>
-        <div className="chat-footer">
-          <ChatForm
-            chatHistory={chatHistory}
-            setChatHistory={setChatHistory}
-            generatebotResponse={generatebotResponse}
-          />
-        </div>
-      </div>
+              {chatHistory.map((chat, index) => (
+                <ChatMessage key={index} chat={chat} />
+              ))}
+            </div>
+            <div className="chat-footer">
+              <ChatForm
+                chatHistory={chatHistory}
+                setChatHistory={setChatHistory}
+                generatebotResponse={generatebotResponse}
+              />
+            </div>
+          </div>
+        </>
+      )}
     </div>
   );
 };
