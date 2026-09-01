@@ -2,6 +2,7 @@ import ChatBotIcon from "./components/ChatbotIcon";
 import ChatForm from "./components/ChatForm";
 import ChatMessage from "./components/ChatMessage";
 import Sidebar from "./components/Sidebar";
+import pmaLogo from "./assets/PMA_Kakul_logo.png";
 import { useState, useRef, useEffect } from "react";
 
 const App = () => {
@@ -10,7 +11,10 @@ const App = () => {
   const [theme, setTheme] = useState("light");
 
   const generatebotResponse = async (history) => {
-    const formattedHistory = history.map(({ role, text }) => ({ role, parts: [{ text }] }));
+    const formattedHistory = history.map(({ role, text }) => ({
+      role,
+      parts: [{ text }],
+    }));
     const requestOptions = {
       method: "POST",
       headers: {
@@ -19,10 +23,7 @@ const App = () => {
       body: JSON.stringify({ messages: formattedHistory }),
     };
     try {
-      const response = await fetch(
-        "/api/chat",
-        requestOptions,
-      );
+      const response = await fetch("/api/chat", requestOptions);
 
       if (!response.ok) {
         const errorText = await response.text();
@@ -88,9 +89,10 @@ const App = () => {
 
       <div className="chatbot-popup">
         <div className="chat-header">
+          <img src={pmaLogo} alt="PMA Kakul Logo" className="header-logo" />
           <div className="header-info">
             <ChatBotIcon />
-            <h2 className="logo-text">Chatbot</h2>
+            <h2 className="logo-text">GC Chatbot</h2>
           </div>
         </div>
         <div ref={chatBodyRef} className="chat-body">
