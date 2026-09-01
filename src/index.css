@@ -127,6 +127,13 @@ body {
   border-bottom: 2px solid var(--border);
 }
 
+.chat-header .header-logo {
+  height: 44px;
+  width: auto;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
 .chat-header .header-info {
   display: flex;
   align-items: center;
@@ -324,6 +331,10 @@ body {
 .sidebar-logo svg {
   width: 40px;
   height: 40px;
+  border-radius: 50%;
+  background: var(--bot-icon-bg);
+  fill: var(--bot-icon-fill);
+  padding: 6px;
   flex-shrink: 0;
 }
 
@@ -666,4 +677,39 @@ body {
 /* Hide button when input is empty (relies on 'required' attribute) */
 .chat-footer .message-input:invalid + .material-symbols-rounded {
   display: none;
+}
+
+/* =============================================
+   MOBILE RESPONSIVE
+   ============================================= */
+@media (max-width: 640px) {
+  /* Three-column grid: [logo] [title] [spacer]
+     The spacer mirrors the logo so the title is
+     always perfectly centered, never eaten by
+     the fixed hamburger button on the right. */
+  .chatbot-popup .chat-header {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    padding: 14px 70px 14px 16px;
+  }
+
+  .chat-header .header-logo {
+    height: 36px;
+    grid-column: 1;
+  }
+
+  .chat-header .header-info {
+    grid-column: 2;
+    justify-content: center;
+  }
+
+  .header-info .logo-text {
+    font-size: 1.1rem;
+  }
+
+  .header-info svg {
+    width: 32px;
+    height: 32px;
+  }
 }
