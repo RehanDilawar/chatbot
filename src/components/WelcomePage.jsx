@@ -34,12 +34,12 @@ const features = [
         <path d="M12 3a9 9 0 1 0 0 18A9 9 0 0 0 12 3zm1 13h-2v-6h2zm0-8h-2V6h2z" />
       </svg>
     ),
-    title: "Doc-Grounded",
-    desc: "Answers only from official PMA Kakul documentation — no hallucinations, no guesswork.",
+    title: "Syllabus & Beyond",
+    desc: "Answers official PMA Kakul curriculum and general educational questions with transparent citations and zero hallucinations.",
   },
 ];
 
-const WelcomePage = ({ onDiveIn, theme, setTheme }) => {
+const WelcomePage = ({ onDiveIn }) => {
   return (
     <div className="welcome-page">
       <div className="welcome-orb welcome-orb--1" aria-hidden="true" />
@@ -71,9 +71,8 @@ const WelcomePage = ({ onDiveIn, theme, setTheme }) => {
         </h1>
         <p className="welcome-subtitle">
           Your intelligent assistant for the Joint Military Training curriculum
-          at PMA Kakul. Ask about computers, networks, programming, cyber
-          security, MS Office, and more — all grounded in official PMA
-          documentation.
+          at PMA Kakul and educational inquiries. Ask about computers, networks, programming, cyber
+          security, MS Office, and academic subjects — with verified search grounding.
         </p>
 
         <button id="dive-in-btn" className="welcome-cta" onClick={onDiveIn}>
