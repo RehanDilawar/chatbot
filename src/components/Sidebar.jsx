@@ -114,10 +114,9 @@ const Sidebar = ({ theme, setTheme }) => {
           <p className="sidebar-section__label">Theme</p>
           <div className="sidebar-themes">
             {[
+              { value: "default", label: "Default" },
               { value: "light", label: "Light" },
-              { value: "dark", label: "Dark" },
               { value: "vscode", label: "Sea" },
-              { value: "antigravity", label: "Neon Punk" },
             ].map((t) => (
               <button
                 key={t.value}

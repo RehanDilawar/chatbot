@@ -9,7 +9,7 @@ import { useState, useRef, useEffect } from "react";
 const App = () => {
   const chatBodyRef = useRef(null);
   const [chatHistory, setChatHistory] = useState([]);
-  const [theme, setTheme] = useState("light");
+  const [theme, setTheme] = useState("default");
   const [showWelcome, setShowWelcome] = useState(true);
 
   const generatebotResponse = async (history) => {
@@ -33,7 +33,9 @@ const App = () => {
         try {
           const errJson = JSON.parse(errorText);
           errMsg = errJson.error || errMsg;
-        } catch (_) {}
+        } catch {
+          // ignore JSON parse error and use raw text
+        }
         throw new Error(errMsg);
       }
 

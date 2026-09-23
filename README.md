@@ -17,11 +17,10 @@ A modern, responsive, and deeply customizable AI Chatbot interface built with **
 - ⚡ **Real-Time Streaming**: Stream responses chunk-by-chunk in real-time to the React client for a fast, conversational feel.
 - 📁 **Automated Document Knowledge Base**: Converts and cleans a massive `data.docx` Word file into structural HTML (discarding binary images to save tokens) automatically at build/dev time.
 - 📊 **Context Quota Protection**: Implements a sliding window of the **last 8 messages** (4 user turns + 4 assistant responses) to control token accumulation and stay within Gemini free tier limits.
-- 🎨 **Dynamic Theming Engine**: Switch instantly between four carefully crafted UI themes:
-  - ☀️ **Light** (Clean & bright default UI)
-  - 🌙 **Dark** (Modern styling that's easy on the eyes)
-  - 💻 **VS Code** (Developer-focused dark aesthetic)
-  - 🚀 **Antigravity** (Premium, vibrant interface design)
+- 🎨 **Dynamic Theming Engine**: Switch instantly between carefully crafted UI themes:
+  - 🎖️ **Default** (Tactical dark green military theme tailored for PMA Kakul — default)
+  - ☀️ **Light** (Clean & bright UI)
+  - 🌊 **Sea** (Developer-focused deep navy aesthetic)
 - 📝 **Advanced Markdown Support**: Utilizes `react-markdown` and `remark-gfm` to render code snippets, tables, lists, and formatted text directly within chat bubbles.
 - 📱 **Fully Responsive UI**: A mobile-first, floating chat widget design built with modern CSS, ensuring pixel-perfect functionality across desktops, tablets, and smartphones.
 
@@ -105,5 +104,5 @@ The application is fully optimized for seamless deployment on Vercel.
 ---
 
 <p align="center">
-  Built with ❤️ by <a href="https://github.com/rehandilawar">Rehan Dilawar</a>
+  Built with ❤️
 </p>
