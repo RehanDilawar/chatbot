@@ -71,8 +71,8 @@ const WelcomePage = ({ onDiveIn }) => {
         </h1>
         <p className="welcome-subtitle">
           Your intelligent assistant for the Joint Military Training curriculum
-          at PMA Kakul and educational inquiries. Ask about computers, networks, programming, cyber
-          security, MS Office, and academic subjects — with verified search grounding.
+          at PMA Kakul and educational inquiries. Ask about computers, networks,
+          programming, cyber security, MS Office, and academic subjects.
         </p>
 
         <button id="dive-in-btn" className="welcome-cta" onClick={onDiveIn}>
@@ -94,16 +94,6 @@ const WelcomePage = ({ onDiveIn }) => {
       </section>
 
       <footer className="welcome-footer">
-        Built with ❤️ by{" "}
-        <a
-          href="https://github.com/rehandilawar"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="welcome-footer__link"
-        >
-          GC Hammad
-        </a>
-        {" · "}
         <span>Pakistan Military Academy Kakul</span>
       </footer>
     </div>
