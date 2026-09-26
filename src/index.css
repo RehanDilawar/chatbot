@@ -1,84 +1,132 @@
-/* Import Google Fonts */
-@import url("https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,100..900&display=swap");
+/* =============================================
+   PMA KAKUL - GENTLEMAN CADET COMMAND TERMINAL
+   Tactical Military Aesthetic - Sombre, Decent & Creative
+   ============================================= */
+
+/* Google Fonts & Tactical Typography */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Rajdhani:wght@500;600;700&family=Share+Tech+Mono&display=swap");
 
 :root,
 [data-theme="default"] {
-  --app-bg: #0b140e;
-  --panel-bg: #121f16;
-  --header-bg: linear-gradient(135deg, #15271b, #223c2a);
-  --header-text: #e8f5e9;
-  --header-icon-bg: rgba(64, 145, 108, 0.25);
+  /* Sombre Military Drab & Deep Gunmetal (PMA Kakul) */
+  --app-bg: #09100b;
+  --panel-bg: #0e1710;
+  --card-bg: #132117;
+  --card-bg-hover: #182a1d;
+  --header-bg: linear-gradient(135deg, #0e1911 0%, #1a2f21 55%, #14251a 100%);
+  --header-text: #ebf5ee;
+  --header-icon-bg: rgba(82, 183, 136, 0.16);
   --header-icon-fill: #52b788;
-  --theme-sel-bg: rgba(64, 145, 108, 0.2);
+  --theme-sel-bg: rgba(82, 183, 136, 0.15);
   --theme-sel-text: #d8f3dc;
-  --text-main: #e8f5e9;
-  --border: #203525;
-  --user-bg: #2d6a4f;
-  --user-text: #ffffff;
-  --bot-msg-bg: #192b1f;
-  --bot-msg-text: #d8f3dc;
-  --bot-icon-bg: #40916c;
+  --text-main: #e2ede5;
+  --text-muted: #8fa593;
+  --text-dim: #607565;
+  --border: #1d3323;
+  --border-focus: #3d6948;
+  --user-bg: #1d452f;
+  --user-text: #f0faf3;
+  --bot-msg-bg: #121e15;
+  --bot-msg-text: #d8ecde;
+  --bot-icon-bg: #275438;
   --bot-icon-fill: #ffffff;
-  --input-bg: #15241a;
-  --input-border: #284430;
-}
+  --input-bg: #0c160e;
+  --input-border: #233d2a;
 
-[data-theme="light"] {
-  --app-bg: #fdfdfd;
-  --panel-bg: #fff;
-  --header-bg: linear-gradient(#8400ff, #e28bcc);
-  --header-text: #fff;
-  --header-icon-bg: #fff;
-  --header-icon-fill: #8400ff;
-  --theme-sel-bg: rgba(255, 255, 255, 0.2);
-  --theme-sel-text: #fff;
-  --text-main: #000;
-  --border: #e5e5e5;
-  --user-bg: #8400ff;
-  --user-text: #fff;
-  --bot-msg-bg: #fff;
-  --bot-msg-text: #000;
-  --bot-icon-bg: #8400ff;
-  --bot-icon-fill: #fff;
-  --input-bg: #fff;
-  --input-border: #e5e5e5;
+  /* Military Tactical Accents */
+  --tactical-gold: #c7a768;
+  --tactical-gold-glow: rgba(199, 167, 104, 0.28);
+  --tactical-accent: #52b788;
+  --tactical-accent-glow: rgba(82, 183, 136, 0.3);
+  --tactical-telemetry: #74c69d;
+  --blueprint-color: #52b788;
 }
 
 [data-theme="vscode"] {
-  --app-bg: #1e1e1e;
-  --panel-bg: #1e1e1e;
-  --header-bg: #252526;
-  --header-text: #cccccc;
-  --header-icon-bg: #3c3c3c;
-  --header-icon-fill: #007acc;
-  --theme-sel-bg: #3c3c3c;
-  --theme-sel-text: #cccccc;
-  --text-main: #d4d4d4;
-  --border: #333333;
-  --user-bg: #007acc;
+  /* Tactical Slate Gray & Stealth Ops */
+  --app-bg: #121518;
+  --panel-bg: #181c22;
+  --card-bg: #1e242c;
+  --card-bg-hover: #262d37;
+  --header-bg: linear-gradient(135deg, #171d26 0%, #202a38 55%, #18202b 100%);
+  --header-text: #e6edf3;
+  --header-icon-bg: rgba(77, 144, 254, 0.16);
+  --header-icon-fill: #58a6ff;
+  --theme-sel-bg: rgba(88, 166, 255, 0.15);
+  --theme-sel-text: #d2e5ff;
+  --text-main: #dce3eb;
+  --text-muted: #8b99a8;
+  --text-dim: #5c6875;
+  --border: #283342;
+  --border-focus: #3f546e;
+  --user-bg: #1f3b5c;
   --user-text: #ffffff;
-  --bot-msg-bg: #252526;
-  --bot-msg-text: #d4d4d4;
-  --bot-icon-bg: #007acc;
+  --bot-msg-bg: #1a212b;
+  --bot-msg-text: #d6e2ef;
+  --bot-icon-bg: #2b4c73;
   --bot-icon-fill: #ffffff;
-  --input-bg: #3c3c3c;
-  --input-border: #3c3c3c;
+  --input-bg: #141920;
+  --input-border: #2e3a4b;
+
+  --tactical-gold: #7ee787;
+  --tactical-gold-glow: rgba(126, 231, 135, 0.25);
+  --tactical-accent: #58a6ff;
+  --tactical-accent-glow: rgba(88, 166, 255, 0.3);
+  --tactical-telemetry: #79c0ff;
+  --blueprint-color: #58a6ff;
 }
 
+[data-theme="light"] {
+  /* Field Khaki & Desert Sand Command */
+  --app-bg: #f4f1ea;
+  --panel-bg: #eae5da;
+  --card-bg: #dfd9cb;
+  --card-bg-hover: #d5cdbd;
+  --header-bg: linear-gradient(135deg, #374233 0%, #4b5846 60%, #3a4736 100%);
+  --header-text: #f5f7f3;
+  --header-icon-bg: rgba(255, 255, 255, 0.2);
+  --header-icon-fill: #c5a66a;
+  --theme-sel-bg: rgba(75, 88, 70, 0.15);
+  --theme-sel-text: #283324;
+  --text-main: #232d20;
+  --text-muted: #53624e;
+  --text-dim: #7a8a75;
+  --border: #ccc3b1;
+  --border-focus: #63775c;
+  --user-bg: #3a4a35;
+  --user-text: #ffffff;
+  --bot-msg-bg: #fdfbf7;
+  --bot-msg-text: #222c1f;
+  --bot-icon-bg: #4a5c44;
+  --bot-icon-fill: #ffffff;
+  --input-bg: #fdfbf7;
+  --input-border: #c9bfab;
+
+  --tactical-gold: #9e7b39;
+  --tactical-gold-glow: rgba(158, 123, 57, 0.2);
+  --tactical-accent: #436940;
+  --tactical-accent-glow: rgba(67, 105, 64, 0.25);
+  --tactical-telemetry: #3b5a37;
+  --blueprint-color: #546b50;
+}
+
+/* Base resets & typography */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Inter", sans-serif;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 }
 
 body {
   width: 100%;
+  min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
-  /* background defaults handled by .container */
+  background: var(--app-bg);
+  color: var(--text-main);
+  overflow-x: hidden;
 }
 
 .container {
@@ -86,6 +134,81 @@ body {
   min-height: 100vh;
   background: var(--app-bg);
   transition: background 0.3s ease;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* =============================================
+   TACTICAL GRID & VIGNETTE OVERLAYS
+   ============================================= */
+.tactical-grid-overlay {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(to right, rgba(82, 183, 136, 0.028) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(82, 183, 136, 0.028) 1px, transparent 1px);
+  background-size: 36px 36px;
+  z-index: 0;
+}
+
+.tactical-vignette {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(circle at 50% 35%, transparent 35%, rgba(0, 0, 0, 0.65) 100%);
+  z-index: 0;
+}
+
+.chat-grid-overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(to right, rgba(82, 183, 136, 0.02) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(82, 183, 136, 0.02) 1px, transparent 1px);
+  background-size: 32px 32px;
+  z-index: 0;
+}
+
+/* =============================================
+   TACTICAL BLUEPRINTS (TANK & ROCKET WATERMARKS)
+   Soft, Decent, Sombre Technical Schematics
+   ============================================= */
+.tactical-blueprint-wrap {
+  position: fixed;
+  pointer-events: none;
+  z-index: 0;
+  color: var(--blueprint-color);
+  opacity: 0.16;
+  transition: opacity 0.5s ease;
+  filter: drop-shadow(0 0 16px rgba(82, 183, 136, 0.08));
+}
+
+.tactical-blueprint--tank {
+  width: min(520px, 45vw);
+  height: auto;
+  bottom: 30px;
+  left: -20px;
+  animation: tankBlueprintDrift 14s ease-in-out infinite alternate;
+}
+
+.tactical-blueprint--rocket {
+  width: min(340px, 30vw);
+  height: auto;
+  top: 60px;
+  right: -20px;
+  animation: rocketBlueprintDrift 16s ease-in-out infinite alternate;
+}
+
+@keyframes tankBlueprintDrift {
+  0%   { transform: translate(0, 0); opacity: 0.14; }
+  100% { transform: translate(15px, -10px); opacity: 0.22; }
+}
+
+@keyframes rocketBlueprintDrift {
+  0%   { transform: translate(0, 0); opacity: 0.14; }
+  100% { transform: translate(-12px, 16px); opacity: 0.22; }
 }
 
 /* =============================================
@@ -95,363 +218,1261 @@ body {
   position: relative;
   width: 100vw;
   min-height: 100vh;
-  background: var(--app-bg);
   display: flex;
   flex-direction: column;
   align-items: center;
   overflow-x: hidden;
   overflow-y: auto;
-  padding-bottom: 60px;
+  padding-bottom: 50px;
 }
 
-/* --- Animated background orbs --- */
-.welcome-orb {
-  position: fixed;
+/* Top Tactical Telemetry Strip */
+.tactical-top-strip {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 24px;
+  background: rgba(9, 16, 11, 0.88);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border);
+  font-family: "Share Tech Mono", monospace;
+  font-size: 0.76rem;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  z-index: 50;
+}
+
+.tactical-top-strip__left,
+.tactical-top-strip__right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.tactical-status-pulse {
+  position: relative;
+  width: 10px;
+  height: 10px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pulse-core {
+  width: 7px;
+  height: 7px;
   border-radius: 50%;
-  filter: blur(80px);
-  opacity: 0.35;
-  pointer-events: none;
-  z-index: 0;
-  animation: orbFloat 8s ease-in-out infinite alternate;
-}
-.welcome-orb--1 {
-  width: 420px; height: 420px;
-  background: var(--bot-icon-bg);
-  top: -100px; left: -100px;
-  animation-delay: 0s;
-}
-.welcome-orb--2 {
-  width: 300px; height: 300px;
-  background: var(--user-bg);
-  bottom: 100px; right: -80px;
-  animation-delay: 2.5s;
-}
-.welcome-orb--3 {
-  width: 200px; height: 200px;
-  background: var(--header-icon-fill);
-  top: 50%; left: 50%;
-  transform: translate(-50%, -50%);
-  animation-delay: 5s;
-}
-@keyframes orbFloat {
-  from { transform: translate(0, 0) scale(1); }
-  to   { transform: translate(20px, 30px) scale(1.08); }
+  background: var(--tactical-accent);
+  box-shadow: 0 0 8px var(--tactical-accent);
 }
 
-/* --- Corner logo (top-left) --- */
-.welcome-corner-logo {
-  position: fixed;
-  top: 18px;
-  left: 20px;
-  height: 48px;
+.pulse-ring {
+  position: absolute;
+  inset: -3px;
+  border-radius: 50%;
+  border: 1px solid var(--tactical-accent);
+  animation: radarRing 2s cubic-bezier(0.2, 0.8, 0.4, 1) infinite;
+}
+
+@keyframes radarRing {
+  0%   { transform: scale(0.6); opacity: 0.9; }
+  100% { transform: scale(1.8); opacity: 0; }
+}
+
+.tactical-label {
+  color: var(--text-main);
+  font-weight: 600;
+}
+
+.tactical-divider-bar {
+  opacity: 0.3;
+}
+
+.tactical-coords {
+  color: var(--tactical-telemetry);
+}
+
+.tactical-coords i {
+  margin-right: 4px;
+  color: var(--tactical-gold);
+}
+
+.tactical-clock {
+  color: var(--text-main);
+}
+
+.tactical-clock i {
+  margin-right: 4px;
+  color: var(--tactical-accent);
+}
+
+.tactical-clearance-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: rgba(199, 167, 104, 0.12);
+  border: 1px solid rgba(199, 167, 104, 0.35);
+  color: var(--tactical-gold);
+  padding: 2px 10px;
+  border-radius: 4px;
+  font-weight: 600;
+}
+
+/* Academy Crest Top Brand */
+.welcome-top-brand {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: 36px;
+  padding: 8px 20px;
+  border-radius: 12px;
+  background: rgba(14, 23, 16, 0.65);
+  border: 1px solid var(--border);
+  backdrop-filter: blur(8px);
+}
+
+.welcome-academy-crest {
+  height: 52px;
   width: auto;
   object-fit: contain;
-  z-index: 100;
-  filter: drop-shadow(0 2px 8px rgba(0,0,0,0.18));
+  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.5));
 }
 
-/* --- Floating theme selector (top-right) --- */
-.welcome-theme-select {
-  position: fixed;
-  top: 18px;
-  right: 20px;
-  z-index: 100;
+.welcome-brand-text {
+  display: flex;
+  flex-direction: column;
 }
 
-/* --- Hero --- */
+.brand-sup {
+  font-family: "Rajdhani", sans-serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--text-main);
+}
+
+.brand-motto {
+  font-family: "Share Tech Mono", monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  color: var(--tactical-gold);
+}
+
+/* Hero Section */
 .welcome-hero {
   position: relative;
-  z-index: 1;
+  z-index: 2;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  padding: 80px 24px 48px;
-  max-width: 700px;
+  padding: 40px 24px 30px;
+  max-width: 820px;
   width: 100%;
 }
 
-/* Bot icon with pulsing rings */
-.welcome-icon-wrap {
+/* Tactical Emblem / Reticle with Tank & Rocket Orbits */
+.tactical-emblem-wrap {
   position: relative;
-  width: 110px;
-  height: 110px;
-  margin-bottom: 28px;
+  width: 120px;
+  height: 120px;
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-.welcome-icon-ring {
+
+.tactical-reticle-ring {
   position: absolute;
-  inset: -12px;
+  inset: 0;
   border-radius: 50%;
-  border: 2px solid var(--bot-icon-bg);
-  opacity: 0.5;
-  animation: ringPulse 2.4s ease-out infinite;
-}
-.welcome-icon-ring--2 {
-  inset: -24px;
-  opacity: 0.25;
-  animation-delay: 1.2s;
-}
-@keyframes ringPulse {
-  0%   { transform: scale(0.88); opacity: 0.5; }
-  100% { transform: scale(1.12); opacity: 0; }
-}
-.welcome-bot-icon {
-  width: 110px;
-  height: 110px;
-  border-radius: 50%;
-  background: var(--bot-icon-bg);
-  fill: var(--bot-icon-fill);
-  padding: 20px;
-  box-sizing: border-box;
-  box-shadow: 0 8px 32px color-mix(in srgb, var(--bot-icon-bg) 50%, transparent);
+  border: 1px dashed rgba(82, 183, 136, 0.4);
+  animation: spinSlow 30s linear infinite;
 }
 
-.welcome-badge {
-  display: inline-block;
-  padding: 5px 16px;
-  border-radius: 999px;
-  background: color-mix(in srgb, var(--bot-icon-bg) 15%, transparent);
-  border: 1px solid color-mix(in srgb, var(--bot-icon-bg) 40%, transparent);
-  color: var(--header-icon-fill);
-  font-size: 0.8rem;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  margin-bottom: 20px;
+.tactical-reticle-ring--outer {
+  inset: -14px;
+  border: 1px solid rgba(199, 167, 104, 0.25);
+  border-left-color: var(--tactical-gold);
+  border-right-color: var(--tactical-accent);
+  animation: spinReverse 24s linear infinite;
 }
 
-.welcome-title {
-  font-size: clamp(2rem, 6vw, 3.4rem);
-  font-weight: 800;
-  line-height: 1.15;
+@keyframes spinSlow {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+@keyframes spinReverse {
+  from { transform: rotate(360deg); }
+  to   { transform: rotate(0deg); }
+}
+
+/* Corner Reticle Ticks [ + ] */
+.tactical-corner-mark {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-color: var(--tactical-accent);
+  pointer-events: none;
+}
+
+.mark-tl { top: -20px; left: -20px; border-top: 2px solid; border-left: 2px solid; }
+.mark-tr { top: -20px; right: -20px; border-top: 2px solid; border-right: 2px solid; }
+.mark-bl { bottom: -20px; left: -20px; border-bottom: 2px solid; border-left: 2px solid; }
+.mark-br { bottom: -20px; right: -20px; border-bottom: 2px solid; border-right: 2px solid; }
+
+.tactical-bot-crest {
+  position: relative;
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #1a3322 0%, #0d1a10 80%);
+  border: 2px solid var(--border-focus);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 30px rgba(82, 183, 136, 0.25), inset 0 0 15px rgba(0, 0, 0, 0.8);
+}
+
+.crest-insignia {
+  color: var(--tactical-gold);
+  filter: drop-shadow(0 2px 6px rgba(199, 167, 104, 0.4));
+  z-index: 2;
+}
+
+.crest-inner-orbit {
+  position: absolute;
+  inset: -6px;
+  border-radius: 50%;
+  pointer-events: none;
+  animation: spinSlow 18s linear infinite;
+}
+
+.orbit-icon {
+  position: absolute;
+  color: var(--tactical-accent);
+  opacity: 0.75;
+  filter: drop-shadow(0 0 4px var(--tactical-accent));
+}
+
+.orbit-tank {
+  top: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.orbit-rocket {
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* Cadet Badge */
+.tactical-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 18px;
+  border-radius: 6px;
+  background: rgba(14, 23, 16, 0.85);
+  border: 1px solid var(--border-focus);
   color: var(--text-main);
-  margin: 0 0 18px;
-  letter-spacing: -0.02em;
+  font-family: "Share Tech Mono", monospace;
+  font-size: 0.78rem;
+  letter-spacing: 0.12em;
+  margin-bottom: 18px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
 }
-.welcome-title__accent {
-  background: var(--header-bg);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+
+.badge-gold-icon {
+  color: var(--tactical-gold);
+}
+
+.badge-sep {
+  opacity: 0.3;
+}
+
+.badge-status {
+  color: var(--tactical-accent);
+  font-weight: 700;
+}
+
+/* Titles */
+.welcome-title {
+  font-family: "Rajdhani", sans-serif;
+  font-size: clamp(2.4rem, 6.5vw, 4.2rem);
+  font-weight: 800;
+  line-height: 1.05;
+  color: var(--text-main);
+  letter-spacing: 0.04em;
+  margin-bottom: 12px;
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.7);
+}
+
+.welcome-title__sub {
+  display: block;
+  font-family: "Rajdhani", sans-serif;
+  font-size: clamp(1rem, 2.5vw, 1.5rem);
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  color: var(--tactical-gold);
+  margin-top: 6px;
+  text-transform: uppercase;
 }
 
 .welcome-subtitle {
   font-size: 1.05rem;
-  color: var(--text-main);
-  opacity: 0.7;
-  max-width: 520px;
+  color: var(--text-muted);
   line-height: 1.7;
-  margin: 0 0 36px;
+  max-width: 680px;
+  margin: 0 auto 28px;
 }
 
-/* CTA button */
-.welcome-cta {
+.welcome-subtitle strong {
+  color: var(--text-main);
+  font-weight: 600;
+}
+
+/* Primary CTA Button */
+.welcome-cta-group {
+  margin-bottom: 32px;
+}
+
+.tactical-cta-primary {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
-  padding: 16px 40px;
-  border: none;
-  border-radius: 999px;
-  background: var(--header-bg);
-  color: var(--header-text);
-  font-size: 1.1rem;
+  gap: 14px;
+  padding: 16px 44px;
+  border-radius: 8px;
+  border: 1px solid var(--tactical-gold);
+  background: linear-gradient(135deg, #1b3825 0%, #295437 50%, #1e3f2a 100%);
+  color: #f4faf6;
+  font-family: "Rajdhani", sans-serif;
+  font-size: 1.15rem;
   font-weight: 700;
+  letter-spacing: 0.1em;
   cursor: pointer;
   position: relative;
   overflow: hidden;
-  box-shadow: 0 6px 28px color-mix(in srgb, var(--bot-icon-bg) 50%, transparent);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 6px 28px rgba(41, 84, 55, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  transition: transform 0.2s ease, box-shadow 0.25s ease, background 0.2s ease;
 }
-.welcome-cta svg {
-  width: 22px; height: 22px;
-  fill: currentColor;
-  transition: transform 0.25s ease;
-}
-.welcome-cta:hover {
+
+.tactical-cta-primary:hover {
   transform: translateY(-3px);
-  box-shadow: 0 12px 36px color-mix(in srgb, var(--bot-icon-bg) 65%, transparent);
+  box-shadow: 0 10px 36px rgba(82, 183, 136, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.35);
+  border-color: #f1cf89;
 }
-.welcome-cta:hover svg {
+
+.tactical-cta-primary .cta-icon-left {
+  color: var(--tactical-gold);
+  font-size: 1.2rem;
+}
+
+.tactical-cta-primary .cta-icon-right {
+  color: var(--tactical-accent);
+  transition: transform 0.2s ease;
+}
+
+.tactical-cta-primary:hover .cta-icon-right {
   transform: translateX(5px);
 }
+
 /* Shimmer sweep */
-.welcome-cta::after {
+.tactical-cta-primary::after {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(105deg, transparent 40%, rgba(255,255,255,0.25) 50%, transparent 60%);
+  background: linear-gradient(105deg, transparent 35%, rgba(255, 255, 255, 0.22) 50%, transparent 65%);
   background-size: 200% 100%;
-  animation: shimmer 2.4s linear infinite;
+  animation: shimmerTactical 3s linear infinite;
+  pointer-events: none;
 }
-@keyframes shimmer {
+
+@keyframes shimmerTactical {
   from { background-position: 200% 0; }
   to   { background-position: -200% 0; }
 }
 
-/* --- Feature cards --- */
-.welcome-features {
-  position: relative;
-  z-index: 1;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 20px;
+/* Quick Tactical Mission Directives (Chips) */
+.tactical-quick-prompts {
   width: 100%;
-  max-width: 900px;
-  padding: 0 24px;
-  box-sizing: border-box;
-}
-.welcome-card {
-  background: var(--panel-bg);
+  max-width: 820px;
+  background: rgba(14, 23, 16, 0.7);
   border: 1px solid var(--border);
-  border-radius: 18px;
-  padding: 28px 24px;
-  text-align: center;
-  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  border-radius: 12px;
+  padding: 16px 20px;
+  backdrop-filter: blur(8px);
+  text-align: left;
 }
-.welcome-card:hover {
-  transform: translateY(-5px);
-  border-color: var(--bot-icon-bg);
-  box-shadow: 0 8px 28px color-mix(in srgb, var(--bot-icon-bg) 20%, transparent);
-}
-.welcome-card__icon {
-  width: 48px;
-  height: 48px;
-  border-radius: 14px;
-  background: color-mix(in srgb, var(--bot-icon-bg) 15%, transparent);
+
+.quick-prompts-header {
   display: flex;
   align-items: center;
-  justify-content: center;
-  margin: 0 auto 16px;
-  color: var(--header-icon-fill);
-}
-.welcome-card__icon svg {
-  width: 24px; height: 24px;
-}
-.welcome-card__title {
-  font-size: 1rem;
-  font-weight: 700;
-  color: var(--text-main);
-  margin: 0 0 8px;
-}
-.welcome-card__desc {
-  font-size: 0.875rem;
-  color: var(--text-main);
-  opacity: 0.65;
-  line-height: 1.55;
-  margin: 0;
+  gap: 8px;
+  font-family: "Share Tech Mono", monospace;
+  font-size: 0.76rem;
+  letter-spacing: 0.08em;
+  color: var(--tactical-gold);
+  margin-bottom: 12px;
 }
 
-/* --- Footer --- */
-.welcome-footer {
-  position: relative;
-  z-index: 1;
-  margin-top: 48px;
-  font-size: 0.875rem;
-  color: var(--text-main);
-  opacity: 0.55;
-  text-align: center;
+.quick-prompts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 10px;
 }
-.welcome-footer__link {
-  color: var(--header-icon-fill);
-  text-decoration: none;
-  font-weight: 600;
-}
-.welcome-footer__link:hover { text-decoration: underline; }
 
-/* Chatbot entry fade-in */
-@keyframes popIn {
-  from { opacity: 0; transform: translateY(16px); }
-  to   { opacity: 1; transform: translateY(0); }
+.tactical-prompt-chip {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--card-bg);
+  color: var(--text-main);
+  font-size: 0.84rem;
+  font-weight: 500;
+  cursor: pointer;
+  text-align: left;
+  transition: background 0.2s ease, border-color 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
 }
-.chatbot-popup--enter {
-  animation: popIn 0.45s cubic-bezier(0.22, 1, 0.36, 1) both;
+
+.tactical-prompt-chip:hover {
+  background: var(--card-bg-hover);
+  border-color: var(--tactical-accent);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(82, 183, 136, 0.2);
+}
+
+.tactical-prompt-chip .chip-icon {
+  color: var(--tactical-accent);
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.tactical-prompt-chip .chip-label {
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.tactical-prompt-chip .chip-arrow {
+  color: var(--text-dim);
+  font-size: 0.9rem;
+  transition: transform 0.15s ease, color 0.15s ease;
+  flex-shrink: 0;
+}
+
+.tactical-prompt-chip:hover .chip-arrow {
+  color: var(--tactical-gold);
+  transform: translate(2px, -2px);
 }
 
 /* =============================================
-   CHATBOT POPUP
+   CAPABILITY & CURRICULUM MODULES (CARDS)
+   ============================================= */
+.tactical-features-section {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 1100px;
+  padding: 20px 24px;
+  margin-top: 10px;
+}
+
+.features-section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 24px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--border);
+}
+
+.section-subtitle {
+  font-family: "Share Tech Mono", monospace;
+  font-size: 0.74rem;
+  letter-spacing: 0.12em;
+  color: var(--tactical-gold);
+  display: block;
+  margin-bottom: 4px;
+}
+
+.section-title {
+  font-family: "Rajdhani", sans-serif;
+  font-size: 1.8rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--text-main);
+}
+
+.section-spec-pill {
+  font-family: "Share Tech Mono", monospace;
+  font-size: 0.75rem;
+  color: var(--tactical-telemetry);
+  background: rgba(82, 183, 136, 0.1);
+  border: 1px solid rgba(82, 183, 136, 0.3);
+  padding: 5px 12px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.tactical-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 20px;
+}
+
+.tactical-card {
+  position: relative;
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 24px 22px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+  overflow: hidden;
+}
+
+.tactical-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--tactical-accent);
+  background: var(--card-bg-hover);
+  box-shadow: 0 10px 32px rgba(0, 0, 0, 0.45), 0 0 20px rgba(82, 183, 136, 0.2);
+}
+
+/* Corner accent tick */
+.tactical-card__corner-accent {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 24px;
+  height: 24px;
+  border-top: 2px solid var(--tactical-gold);
+  border-right: 2px solid var(--tactical-gold);
+  opacity: 0.6;
+  transition: opacity 0.2s ease, width 0.2s ease, height 0.2s ease;
+}
+
+.tactical-card:hover .tactical-card__corner-accent {
+  opacity: 1;
+  width: 32px;
+  height: 32px;
+}
+
+.tactical-card__top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 18px;
+}
+
+.tactical-card__code {
+  font-family: "Share Tech Mono", monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  color: var(--tactical-gold);
+}
+
+.tactical-card__badge {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--tactical-telemetry);
+  background: rgba(82, 183, 136, 0.12);
+  border: 1px solid rgba(82, 183, 136, 0.28);
+  border-radius: 4px;
+  padding: 3px 8px;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.tactical-card__icon-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.tactical-card__main-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 10px;
+  background: rgba(82, 183, 136, 0.1);
+  border: 1px solid rgba(82, 183, 136, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--tactical-accent);
+  transition: transform 0.25s ease, background 0.25s ease;
+}
+
+.tactical-card:hover .tactical-card__main-icon {
+  transform: scale(1.08);
+  background: rgba(82, 183, 136, 0.2);
+}
+
+.tactical-card__sub-icon {
+  font-size: 1.4rem;
+  color: var(--text-dim);
+  transition: color 0.2s ease;
+}
+
+.tactical-card:hover .tactical-card__sub-icon {
+  color: var(--tactical-gold);
+}
+
+.tactical-card__title {
+  font-family: "Rajdhani", sans-serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-main);
+  letter-spacing: 0.03em;
+  margin-bottom: 8px;
+}
+
+.tactical-card__desc {
+  font-size: 0.86rem;
+  color: var(--text-muted);
+  line-height: 1.55;
+  margin-bottom: 20px;
+  flex: 1;
+}
+
+.tactical-card__footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 12px;
+  border-top: 1px solid var(--border);
+  font-family: "Share Tech Mono", monospace;
+  font-size: 0.78rem;
+  color: var(--tactical-accent);
+}
+
+.action-hint {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.card-arrow {
+  font-size: 1.2rem;
+  transition: transform 0.2s ease;
+}
+
+.tactical-card:hover .card-arrow {
+  transform: translateX(4px);
+}
+
+/* =============================================
+   SOMBRE MILITARY FOOTER
+   ============================================= */
+.tactical-footer {
+  position: relative;
+  z-index: 2;
+  margin-top: 48px;
+  padding: 24px 20px 0;
+  width: 100%;
+  max-width: 900px;
+  border-top: 1px solid var(--border);
+  text-align: center;
+}
+
+.footer-insignia-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  margin-bottom: 12px;
+  color: var(--tactical-accent);
+  opacity: 0.75;
+}
+
+.footer-veh-icon {
+  display: inline-flex;
+}
+
+.footer-dot {
+  font-size: 0.8rem;
+  color: var(--tactical-gold);
+}
+
+.footer-pma-text {
+  font-family: "Rajdhani", sans-serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--text-main);
+  margin-bottom: 4px;
+}
+
+.footer-sub-text {
+  font-family: "Share Tech Mono", monospace;
+  font-size: 0.76rem;
+  letter-spacing: 0.08em;
+  color: var(--tactical-gold);
+  margin-bottom: 8px;
+}
+
+.footer-meta {
+  font-family: "Share Tech Mono", monospace;
+  font-size: 0.7rem;
+  color: var(--text-dim);
+  letter-spacing: 0.08em;
+}
+
+/* =============================================
+   CHATBOT POPUP & TACTICAL INTERFACE
    ============================================= */
 .chatbot-popup {
-
   position: relative;
   width: 100vw;
   height: 100vh;
   background: var(--panel-bg);
   display: flex;
   flex-direction: column;
+  overflow: hidden;
 }
 
-.chatbot-popup .chat-header {
+.chatbot-popup--enter {
+  animation: popupFadeIn 0.35s cubic-bezier(0.2, 0.9, 0.4, 1) both;
+}
+
+@keyframes popupFadeIn {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Tactical Chat Header */
+.tactical-chat-header {
   background: var(--header-bg);
-  padding: 20px max(20px, calc((100vw - 1000px) / 2));
+  padding: 14px max(24px, calc((100vw - 1100px) / 2));
   display: flex;
   justify-content: space-between;
   align-items: center;
   color: var(--header-text);
   border-bottom: 2px solid var(--border);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.45);
+  position: relative;
+  z-index: 20;
+}
+
+.header-left-zone {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+/* Return to Briefing button */
+.tactical-back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(82, 183, 136, 0.12);
+  border: 1px solid var(--border-focus);
+  color: var(--text-main);
+  padding: 7px 14px;
+  border-radius: 6px;
+  font-family: "Rajdhani", sans-serif;
+  font-size: 0.92rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  cursor: pointer;
+  transition: background 0.2s ease, border-color 0.2s ease, transform 0.15s ease;
+}
+
+.tactical-back-btn:hover {
+  background: rgba(82, 183, 136, 0.25);
+  border-color: var(--tactical-accent);
+  transform: translateX(-2px);
 }
 
 .chat-header .header-logo {
-  height: 44px;
+  height: 42px;
   width: auto;
   object-fit: contain;
-  flex-shrink: 0;
+  filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.5));
 }
 
-.chat-header .header-info {
+.header-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.header-icon-shell {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--header-icon-bg);
+  border: 1px solid rgba(82, 183, 136, 0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--tactical-gold);
+}
+
+.header-titles {
+  display: flex;
+  flex-direction: column;
+}
+
+.header-title-row {
   display: flex;
   align-items: center;
   gap: 10px;
 }
 
-.header-info svg {
+.header-info .logo-text {
+  font-family: "Rajdhani", sans-serif;
+  font-size: 1.45rem;
+  font-weight: 700;
+  color: var(--header-text);
+  letter-spacing: 0.05em;
+  line-height: 1.1;
+}
+
+.status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: "Share Tech Mono", monospace;
+  font-size: 0.68rem;
+  color: var(--tactical-telemetry);
+  background: rgba(82, 183, 136, 0.14);
+  border: 1px solid rgba(82, 183, 136, 0.3);
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+
+.pulse-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--tactical-accent);
+  box-shadow: 0 0 6px var(--tactical-accent);
+}
+
+.header-subtext {
+  font-family: "Share Tech Mono", monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  color: var(--tactical-gold);
+  opacity: 0.85;
+}
+
+/* Header Telemetry Badges */
+.header-tactical-specs {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.spec-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border-radius: 6px;
+  background: rgba(14, 23, 16, 0.75);
+  border: 1px solid var(--border);
+  font-family: "Share Tech Mono", monospace;
+  font-size: 0.76rem;
+  color: var(--tactical-accent);
+}
+
+.spec-badge i {
+  color: var(--tactical-gold);
+}
+
+.spec-badge--coord {
+  color: var(--tactical-gold);
+}
+
+/* Chat Body */
+.tactical-chat-body {
+  flex: 1;
+  padding: 30px max(24px, calc((100vw - 1100px) / 2));
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  scrollbar-width: thin;
+  scrollbar-color: var(--input-border) transparent;
+  position: relative;
+  z-index: 10;
+}
+
+.tactical-msg-wrapper {
+  display: flex;
+  gap: 12px;
+  max-width: 85%;
+  align-items: flex-start;
+}
+
+.bot-avatar-wrap {
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  background: var(--header-icon-bg);
-  padding: 5px;
-  fill: var(--header-icon-fill);
+  background: var(--bot-icon-bg);
+  border: 1px solid rgba(82, 183, 136, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--tactical-gold);
   flex-shrink: 0;
+  margin-top: 4px;
 }
 
-.header-info .logo-text {
-  font-size: 1.3rem;
-  font-weight: 600;
-  color: var(--header-text);
+.message-container {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 0;
 }
 
-.theme-selector {
-  background: var(--theme-sel-bg);
-  color: var(--theme-sel-text);
+.message-meta-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  font-family: "Share Tech Mono", monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  padding: 0 4px;
+}
+
+.meta-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--text-dim);
+}
+
+.bot-message .meta-label {
+  color: var(--tactical-gold);
+}
+
+.copy-msg-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: transparent;
   border: 1px solid var(--border);
-  border-radius: 8px;
-  padding: 8px 12px;
-  font-size: 0.9rem;
+  color: var(--text-muted);
+  font-family: "Share Tech Mono", monospace;
+  font-size: 0.68rem;
+  padding: 2px 7px;
+  border-radius: 4px;
   cursor: pointer;
-  outline: none;
-  backdrop-filter: blur(5px);
-}
-.theme-selector:focus {
-  border-color: var(--bot-icon-bg);
+  transition: all 0.15s ease;
 }
 
-.theme-selector option {
-  background: var(--panel-bg);
+.copy-msg-btn:hover {
   color: var(--text-main);
+  border-color: var(--tactical-accent);
+  background: rgba(82, 183, 136, 0.12);
+}
+
+.copy-msg-btn--inline {
+  margin-top: 12px;
+  background: rgba(0, 0, 0, 0.25);
+  display: flex;
+}
+
+.chat-body .message .message-text {
+  border-radius: 10px;
+  padding: 14px 18px;
+  font-size: 0.95rem;
+  line-height: 1.65;
+  word-wrap: break-word;
+  position: relative;
+}
+
+.bot-message .message-text {
+  background: var(--bot-msg-bg);
+  color: var(--bot-msg-text);
+  border: 1px solid var(--border);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
+}
+
+.user-message {
+  align-self: flex-end;
+}
+
+.user-message .message-text {
+  background: var(--user-bg);
+  color: var(--user-text);
+  border: 1px solid rgba(82, 183, 136, 0.35);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
+}
+
+/* Markdown styling inside messages */
+.chat-body .message .message-text p {
+  margin-bottom: 0.6em;
+}
+
+.chat-body .message .message-text > *:last-child {
+  margin-bottom: 0;
+}
+
+.chat-body .message .message-text ul,
+.chat-body .message .message-text ol {
+  margin-left: 1.6em;
+  margin-bottom: 0.6em;
+}
+
+.chat-body .message .message-text code {
+  background: rgba(0, 0, 0, 0.35);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-family: "Share Tech Mono", monospace;
+  font-size: 0.88em;
+  color: var(--tactical-telemetry);
+  border: 1px solid rgba(82, 183, 136, 0.2);
+}
+
+.chat-body .message .message-text pre {
+  background: rgba(0, 0, 0, 0.45);
+  padding: 12px 14px;
+  border-radius: 8px;
+  overflow-x: auto;
+  margin-bottom: 0.6em;
+  border: 1px solid var(--border);
+}
+
+.chat-body .message .message-text pre code {
+  background: transparent;
+  padding: 0;
+  border: none;
+}
+
+/* Tactical Thinking Radar Animation */
+.tactical-thinking {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: "Share Tech Mono", monospace;
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  color: var(--tactical-telemetry);
+  padding: 6px 0;
+}
+
+.radar-sweep-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--tactical-accent);
+  box-shadow: 0 0 10px var(--tactical-accent);
+  animation: radarPing 1.2s ease-in-out infinite;
+}
+
+@keyframes radarPing {
+  0%   { transform: scale(0.8); opacity: 0.6; }
+  50%  { transform: scale(1.4); opacity: 1; }
+  100% { transform: scale(0.8); opacity: 0.6; }
 }
 
 /* =============================================
-   SIDEBAR TOGGLE BUTTON
+   CHAT FOOTER & TACTICAL INPUT FORM
+   ============================================= */
+.tactical-chat-footer {
+  position: sticky;
+  bottom: 0;
+  padding: 16px max(24px, calc((100vw - 1100px) / 2)) 20px;
+  background: rgba(14, 23, 16, 0.95);
+  backdrop-filter: blur(12px);
+  border-top: 1px solid var(--border);
+  z-index: 20;
+}
+
+.chat-form-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+}
+
+/* Tactical Presets Ribbon */
+.chat-quick-ribbon {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  padding-bottom: 2px;
+}
+
+.chat-quick-ribbon::-webkit-scrollbar {
+  display: none;
+}
+
+.ribbon-title {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-family: "Share Tech Mono", monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  color: var(--tactical-gold);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.ribbon-chips {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.ribbon-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  color: var(--text-main);
+  font-size: 0.78rem;
+  font-weight: 500;
+  padding: 5px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.18s ease;
+}
+
+.ribbon-chip:hover {
+  background: var(--card-bg-hover);
+  border-color: var(--tactical-accent);
+  color: #ffffff;
+  transform: translateY(-1px);
+}
+
+.ribbon-chip__icon {
+  color: var(--tactical-accent);
+  display: inline-flex;
+}
+
+/* Tactical Chat Form */
+.tactical-chat-form {
+  display: flex;
+  gap: 10px;
+  width: 100%;
+}
+
+.input-field-wrapper {
+  position: relative;
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+.input-prefix-icon {
+  position: absolute;
+  left: 16px;
+  color: var(--tactical-gold);
+  font-size: 1rem;
+  pointer-events: none;
+}
+
+.tactical-input {
+  width: 100%;
+  padding: 14px 16px 14px 44px;
+  background: var(--input-bg);
+  color: var(--text-main);
+  border: 1px solid var(--input-border);
+  border-radius: 8px;
+  font-size: 0.95rem;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.tactical-input:focus {
+  border-color: var(--tactical-accent);
+  box-shadow: 0 0 12px rgba(82, 183, 136, 0.25);
+}
+
+/* Rocket Transmit Button */
+.tactical-send-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 22px;
+  border-radius: 8px;
+  border: 1px solid var(--tactical-gold);
+  background: linear-gradient(135deg, #224730 0%, #316645 50%, #244d34 100%);
+  color: #ffffff;
+  font-family: "Rajdhani", sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  cursor: pointer;
+  box-shadow: 0 4px 16px rgba(49, 102, 69, 0.4);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+  flex-shrink: 0;
+}
+
+.tactical-send-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 24px rgba(82, 183, 136, 0.45);
+  background: linear-gradient(135deg, #285438 0%, #3a7a53 50%, #2b5c3e 100%);
+}
+
+.send-btn-icon {
+  color: var(--tactical-gold);
+  display: inline-flex;
+  transition: transform 0.2s ease;
+}
+
+.tactical-send-btn:hover .send-btn-icon {
+  transform: translateY(-2px) scale(1.1);
+}
+
+.send-btn-arrow {
+  font-size: 1.1rem;
+  transition: transform 0.2s ease;
+}
+
+.tactical-send-btn:hover .send-btn-arrow {
+  transform: translateX(3px);
+}
+
+/* Hide transmit button if input is empty */
+.tactical-input:invalid + .tactical-send-btn {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* =============================================
+   TACTICAL SIDEBAR TOGGLE & PANEL
    ============================================= */
 .sidebar-toggle {
   position: fixed;
-  top: 18px;
+  top: 14px;
   right: 20px;
   z-index: 1100;
   width: 44px;
   height: 44px;
   border: 1px solid rgba(82, 183, 136, 0.35);
-  border-radius: 12px;
-  background: linear-gradient(135deg, #18281d, #2d6a4f);
+  border-radius: 8px;
+  background: linear-gradient(135deg, #132418, #223f2b);
   cursor: pointer;
   display: flex;
   flex-direction: column;
@@ -459,41 +1480,30 @@ body {
   justify-content: center;
   gap: 5px;
   padding: 10px;
-  box-shadow: 0 4px 20px rgba(45, 106, 79, 0.45);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
   transition: box-shadow 0.3s ease, transform 0.2s ease;
 }
 
-[data-theme="light"] .sidebar-toggle {
-  background: linear-gradient(135deg, #8400ff, #e28bcc);
-  border: none;
-  box-shadow: 0 4px 20px rgba(132, 0, 255, 0.35);
-}
-[data-theme="vscode"] .sidebar-toggle {
-  background: linear-gradient(135deg, #252526, #007acc);
-  border: none;
-  box-shadow: 0 4px 20px rgba(0, 122, 204, 0.4);
-}
-
 .sidebar-toggle:hover {
-  transform: scale(1.07);
-  box-shadow: 0 6px 28px rgba(132, 0, 255, 0.5);
+  transform: scale(1.06);
+  border-color: var(--tactical-accent);
+  box-shadow: 0 6px 24px rgba(82, 183, 136, 0.4);
 }
 
 .sidebar-toggle .bar {
   display: block;
-  width: 20px;
+  width: 22px;
   height: 2px;
-  background: #fff;
+  background: #e2ede5;
   border-radius: 2px;
   transition: transform 0.35s cubic-bezier(0.77, 0.2, 0.05, 1),
-              opacity 0.25s ease,
-              width 0.3s ease;
+              opacity 0.25s ease;
   transform-origin: center;
 }
 
-/* Animate bars into X when open */
 .sidebar-toggle.open .bar:nth-child(1) {
   transform: translateY(7px) rotate(45deg);
+  background: var(--tactical-gold);
 }
 .sidebar-toggle.open .bar:nth-child(2) {
   opacity: 0;
@@ -501,80 +1511,52 @@ body {
 }
 .sidebar-toggle.open .bar:nth-child(3) {
   transform: translateY(-7px) rotate(-45deg);
+  background: var(--tactical-gold);
 }
 
-/* =============================================
-   SIDEBAR BACKDROP
-   ============================================= */
 .sidebar-backdrop {
   position: fixed;
   inset: 0;
   z-index: 1050;
-  background: rgba(0, 0, 0, 0.45);
-  backdrop-filter: blur(3px);
-  animation: fadeInBackdrop 0.25s ease forwards;
+  background: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(4px);
 }
 
-@keyframes fadeInBackdrop {
-  from { opacity: 0; }
-  to   { opacity: 1; }
-}
-
-/* =============================================
-   SIDEBAR PANEL
-   ============================================= */
-.sidebar {
+/* Sidebar Panel */
+.tactical-sidebar {
   position: fixed;
   top: 0;
   right: 0;
   height: 100vh;
-  width: 300px;
+  width: 320px;
   z-index: 1060;
   background: var(--panel-bg);
   border-left: 1px solid var(--border);
   display: flex;
   flex-direction: column;
   padding: 0;
-  box-shadow: -8px 0 40px rgba(0, 0, 0, 0.2);
+  box-shadow: -10px 0 40px rgba(0, 0, 0, 0.5);
   transform: translateX(110%);
-  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  overflow: hidden;
+  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow-y: auto;
 }
 
-.sidebar--open {
+.tactical-sidebar.sidebar--open {
   transform: translateX(0);
 }
 
-/* Accent stripe at top */
-.sidebar::before {
+.tactical-sidebar::before {
   content: "";
   display: block;
   height: 4px;
-  background: linear-gradient(90deg, #2d6a4f, #52b788, #d4af37, #2d6a4f);
+  background: linear-gradient(90deg, #1b3825, #52b788, #c7a768, #1b3825);
   background-size: 200% 100%;
-  animation: shimmer 3s linear infinite;
+  animation: shimmerTactical 4s linear infinite;
   flex-shrink: 0;
 }
 
-[data-theme="light"] .sidebar::before {
-  background: linear-gradient(90deg, #8400ff, #e28bcc, #8400ff);
-  background-size: 200% 100%;
-}
-[data-theme="vscode"] .sidebar::before {
-  background: linear-gradient(90deg, #007acc, #252526, #007acc);
-  background-size: 200% 100%;
-}
-
-@keyframes shimmer {
-  0%   { background-position: 0% 0%; }
-  100% { background-position: 200% 0%; }
-}
-
-/* =============================================
-   SIDEBAR HEADER
-   ============================================= */
 .sidebar-header {
-  padding: 28px 24px 20px;
+  padding: 24px 22px 18px;
 }
 
 .sidebar-logo {
@@ -583,158 +1565,139 @@ body {
   gap: 12px;
 }
 
-.sidebar-logo svg {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background: var(--bot-icon-bg);
-  fill: var(--bot-icon-fill);
-  padding: 6px;
-  flex-shrink: 0;
+.sidebar-logo-meta {
+  display: flex;
+  flex-direction: column;
 }
 
-.sidebar-logo span {
-  font-size: 1.3rem;
+.sidebar-title {
+  font-family: "Rajdhani", sans-serif;
+  font-size: 1.25rem;
   font-weight: 700;
+  letter-spacing: 0.06em;
   color: var(--text-main);
-  letter-spacing: 0.03em;
 }
 
-/* =============================================
-   SIDEBAR DIVIDER
-   ============================================= */
+.sidebar-sub {
+  font-family: "Share Tech Mono", monospace;
+  font-size: 0.72rem;
+  color: var(--tactical-gold);
+}
+
 .sidebar-divider {
   height: 1px;
   background: var(--border);
   margin: 0 20px;
-  opacity: 0.6;
 }
 
-/* =============================================
-   SIDEBAR NAV LINKS
-   ============================================= */
 .sidebar-nav {
   display: flex;
   flex-direction: column;
   gap: 6px;
-  padding: 20px 16px;
+  padding: 18px 16px;
 }
 
 .sidebar-link {
   display: flex;
   align-items: center;
-  gap: 14px;
-  padding: 13px 16px;
-  border-radius: 14px;
+  gap: 12px;
+  padding: 11px 14px;
+  border-radius: 8px;
   text-decoration: none;
   color: var(--text-main);
   background: transparent;
-  transition: background 0.22s ease, transform 0.18s ease, box-shadow 0.22s ease;
-  position: relative;
-  overflow: hidden;
+  border: 1px solid transparent;
+  transition: background 0.2s ease, border-color 0.2s ease, transform 0.15s ease;
+  font-size: 0.92rem;
+  font-weight: 500;
+  cursor: pointer;
 }
 
-.sidebar-link::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(135deg, rgba(64, 145, 108, 0.15), rgba(45, 106, 79, 0.12));
-  opacity: 0;
-  transition: opacity 0.22s ease;
-  border-radius: inherit;
-}
-
-.sidebar-link:hover::before {
-  opacity: 1;
+.sidebar-link--btn {
+  width: 100%;
+  text-align: left;
 }
 
 .sidebar-link:hover {
+  background: var(--card-bg);
+  border-color: var(--border);
   transform: translateX(-3px);
-  box-shadow: 0 4px 16px rgba(45, 106, 79, 0.3);
-}
-
-[data-theme="light"] .sidebar-link:hover {
-  box-shadow: 0 4px 16px rgba(132, 0, 255, 0.12);
-}
-[data-theme="vscode"] .sidebar-link:hover {
-  box-shadow: 0 4px 16px rgba(0, 122, 204, 0.2);
 }
 
 .sidebar-link__icon {
-  width: 36px;
-  height: 36px;
-  border-radius: 10px;
-  background: linear-gradient(135deg, rgba(64, 145, 108, 0.2), rgba(45, 106, 79, 0.15));
+  width: 32px;
+  height: 32px;
+  border-radius: 6px;
+  background: rgba(82, 183, 136, 0.12);
   display: flex;
   align-items: center;
   justify-content: center;
+  color: var(--tactical-accent);
   flex-shrink: 0;
-  transition: background 0.22s ease, transform 0.22s ease;
-}
-
-[data-theme="light"] .sidebar-link__icon {
-  background: linear-gradient(135deg, #8400ff22, #e28bcc22);
-}
-[data-theme="vscode"] .sidebar-link__icon {
-  background: linear-gradient(135deg, rgba(0, 122, 204, 0.15), rgba(37, 37, 38, 0.2));
-}
-
-.sidebar-link:hover .sidebar-link__icon {
-  transform: scale(1.1) rotate(-5deg);
-}
-
-.sidebar-link__icon svg {
-  width: 18px;
-  height: 18px;
-  color: var(--user-bg);
-  fill: var(--user-bg);
 }
 
 .sidebar-link__text {
   flex: 1;
-  font-size: 0.95rem;
-  font-weight: 600;
-  color: var(--text-main);
 }
 
 .sidebar-link__badge {
-  font-size: 0.7rem;
+  font-family: "Share Tech Mono", monospace;
+  font-size: 0.68rem;
+  color: var(--tactical-gold);
+  background: rgba(199, 167, 104, 0.12);
+  border: 1px solid rgba(199, 167, 104, 0.3);
+  border-radius: 4px;
+  padding: 2px 7px;
+}
+
+/* Sidebar Telemetry Box */
+.sidebar-telemetry-box {
+  margin: 16px 18px;
+  padding: 12px 14px;
+  border-radius: 8px;
+  background: rgba(14, 23, 16, 0.85);
+  border: 1px solid var(--border);
+  font-family: "Share Tech Mono", monospace;
+  font-size: 0.76rem;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.telemetry-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.telemetry-label {
+  color: var(--text-dim);
+}
+
+.telemetry-val {
+  color: var(--text-main);
   font-weight: 600;
-  color: #74c69d;
-  background: rgba(64, 145, 108, 0.15);
-  border: 1px solid rgba(82, 183, 136, 0.35);
-  border-radius: 20px;
-  padding: 3px 10px;
-  white-space: nowrap;
-  transition: background 0.22s ease, color 0.22s ease;
 }
 
-[data-theme="light"] .sidebar-link__badge {
-  color: var(--user-bg);
-  background: linear-gradient(135deg, rgba(132, 0, 255, 0.1), rgba(226, 139, 204, 0.1));
-  border-color: rgba(132, 0, 255, 0.2);
-}
-[data-theme="vscode"] .sidebar-link__badge {
-  color: #007acc;
-  background: rgba(0, 122, 204, 0.15);
-  border-color: rgba(0, 122, 204, 0.3);
+.telemetry-val.val-green {
+  color: var(--tactical-telemetry);
 }
 
-/* =============================================
-   SIDEBAR THEME SECTION
-   ============================================= */
+/* Sidebar Themes */
 .sidebar-section {
-  padding: 20px 20px;
+  padding: 18px 20px;
 }
 
 .sidebar-section__label {
+  font-family: "Share Tech Mono", monospace;
   font-size: 0.72rem;
-  font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--text-main);
-  opacity: 0.5;
+  color: var(--tactical-gold);
   margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
 }
 
 .sidebar-themes {
@@ -746,219 +1709,126 @@ body {
 .sidebar-theme-btn {
   display: flex;
   align-items: center;
+  gap: 10px;
   padding: 10px 14px;
-  border-radius: 10px;
+  border-radius: 8px;
   border: 1px solid var(--border);
   background: transparent;
   color: var(--text-main);
   font-size: 0.88rem;
-  font-weight: 500;
   cursor: pointer;
-  transition: background 0.2s ease, border-color 0.2s ease, transform 0.15s ease;
+  transition: all 0.2s ease;
   text-align: left;
 }
 
 .sidebar-theme-btn:hover {
-  background: var(--bot-msg-bg);
-  transform: translateX(3px);
+  background: var(--card-bg);
+  border-color: var(--border-focus);
 }
 
 .sidebar-theme-btn.active {
-  background: rgba(64, 145, 108, 0.2);
-  border-color: rgba(82, 183, 136, 0.5);
-  color: #74c69d;
-  font-weight: 700;
+  background: rgba(82, 183, 136, 0.16);
+  border-color: var(--tactical-accent);
+  color: var(--tactical-telemetry);
+  font-weight: 600;
 }
 
-[data-theme="light"] .sidebar-theme-btn.active {
-  background: linear-gradient(135deg, rgba(132, 0, 255, 0.12), rgba(226, 139, 204, 0.1));
-  border-color: rgba(132, 0, 255, 0.4);
-  color: var(--user-bg);
-}
-[data-theme="vscode"] .sidebar-theme-btn.active {
-  background: rgba(0, 122, 204, 0.12);
-  border-color: rgba(0, 122, 204, 0.4);
-  color: #007acc;
-}
-
-/* =============================================
-   SIDEBAR FOOTER
-   ============================================= */
 .sidebar-footer {
   margin-top: auto;
-  padding: 20px 24px;
+  padding: 20px;
   border-top: 1px solid var(--border);
   text-align: center;
-  font-size: 0.78rem;
+}
+
+.sidebar-footer__pma {
+  font-family: "Rajdhani", sans-serif;
+  font-size: 0.86rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
   color: var(--text-main);
-  opacity: 0.45;
 }
 
-.chat-body {
-  flex: 1;
-  padding: 40px max(20px, calc((100vw - 1000px) / 2));
-  overflow-y: auto;
-  display: flex;
-  flex-direction: column;
-  scrollbar-width: thin;
-  scrollbar-color: var(--input-border) transparent;
-}
-
-.chat-body .message {
-  display: flex;
-  gap: 10px;
-  margin-bottom: 20px;
-  max-width: 85%;
-  align-items: flex-end;
-}
-
-.chat-body .bot-message svg {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  fill: var(--bot-icon-fill);
-  padding: 5px;
-  background: var(--bot-icon-bg);
-  flex-shrink: 0;
-  align-self: flex-end;
-}
-
-.chat-body .message .message-text {
-  background: var(--user-bg);
-  color: var(--user-text);
-  border-radius: 15px 15px 15px 0;
-  padding: 12px 16px;
-  font-size: 0.95rem;
-  word-wrap: break-word;
-}
-.chat-body .message .message-text p {
-  margin-bottom: 0.5em;
-  color: inherit;
-}
-.chat-body .message .message-text > *:last-child {
-  margin-bottom: 0px;
-}
-.chat-body .message .message-text ul,
-.chat-body .message .message-text ol {
-  margin-left: 1.5em;
-  margin-bottom: 0.5em;
-}
-.chat-body .message .message-text code {
-  background: rgba(0, 0, 0, 0.2);
-  padding: 2px 4px;
-  border-radius: 4px;
-}
-.chat-body .message .message-text pre {
-  background: rgba(0, 0, 0, 0.2);
-  padding: 10px;
-  border-radius: 8px;
-  overflow-x: auto;
-  margin-bottom: 0.5em;
-}
-.chat-body .message .message-text pre code {
-  background: transparent;
-  padding: 0;
-}
-.chat-body .bot-message .message-text {
-  background: var(--bot-msg-bg);
-  color: var(--bot-msg-text);
-}
-
-.chat-body .user-message {
-  align-self: flex-end;
-}
-
-.chat-body .user-message .message-text {
-  background: var(--user-bg);
-  color: var(--user-text);
-  border-radius: 15px 15px 0 15px;
-}
-
-.chat-footer {
-  position: sticky;
-  bottom: 0;
-  padding: 20px max(20px, calc((100vw - 1000px) / 2));
-  background: var(--panel-bg);
-  border-top: 1px solid var(--border);
-}
-
-.chat-footer .chat-form {
-  display: flex;
-  gap: 10px;
-}
-
-.chat-footer .message-input {
-  flex: 1;
-  padding: 12px 16px;
-  background: var(--input-bg);
-  color: var(--text-main);
-  border: 1px solid var(--input-border);
-  border-radius: 20px;
-  font-size: 0.95rem;
-  outline: none;
-}
-
-.chat-footer .message-input:focus {
-  border-color: var(--bot-icon-bg);
-}
-
-.chat-footer .material-symbols-rounded {
-  background: var(--bot-icon-bg);
-  border: none;
-  color: var(--bot-icon-fill);
-  font-size: 1.9rem;
-  cursor: pointer;
-  border-radius: 50%;
-  transition:
-    background-color 0.2s ease,
-    transform 0.2s ease;
-  width: 45px;
-  height: 45px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-}
-.chat-footer .material-symbols-rounded:hover {
-  transform: scale(1.05);
-}
-
-/* Hide button when input is empty (relies on 'required' attribute) */
-.chat-footer .message-input:invalid + .material-symbols-rounded {
-  display: none;
+.sidebar-footer__motto {
+  font-family: "Share Tech Mono", monospace;
+  font-size: 0.72rem;
+  color: var(--tactical-gold);
 }
 
 /* =============================================
-   MOBILE RESPONSIVE
+   MOBILE RESPONSIVENESS
    ============================================= */
-@media (max-width: 640px) {
-  /* Three-column grid: [logo] [title] [spacer]
-     The spacer mirrors the logo so the title is
-     always perfectly centered, never eaten by
-     the fixed hamburger button on the right. */
-  .chatbot-popup .chat-header {
-    display: grid;
-    grid-template-columns: auto 1fr auto;
-    align-items: center;
-    padding: 14px 70px 14px 16px;
+@media (max-width: 768px) {
+  .tactical-top-strip {
+    font-size: 0.7rem;
+    padding: 6px 14px;
+  }
+  .tactical-top-strip__right {
+    display: none;
   }
 
-  .chat-header .header-logo {
-    height: 36px;
-    grid-column: 1;
+  .tactical-blueprint--tank {
+    width: 280px;
+    opacity: 0.08;
+    bottom: 10px;
+    left: -40px;
   }
 
-  .chat-header .header-info {
-    grid-column: 2;
-    justify-content: center;
+  .tactical-blueprint--rocket {
+    width: 200px;
+    opacity: 0.08;
+    top: 40px;
+    right: -40px;
   }
 
-  .header-info .logo-text {
-    font-size: 1.1rem;
+  .welcome-top-brand {
+    margin-top: 16px;
+    padding: 6px 14px;
   }
 
-  .header-info svg {
-    width: 32px;
-    height: 32px;
+  .welcome-hero {
+    padding: 24px 16px 20px;
+  }
+
+  .tactical-cards-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .features-section-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  /* Chat header on mobile */
+  .tactical-chat-header {
+    padding: 10px 64px 10px 14px;
+  }
+
+  .header-tactical-specs {
+    display: none;
+  }
+
+  .header-titles .header-subtext {
+    display: none;
+  }
+
+  .tactical-chat-body {
+    padding: 16px;
+  }
+
+  .tactical-msg-wrapper {
+    max-width: 95%;
+  }
+
+  .tactical-chat-footer {
+    padding: 12px 14px 16px;
+  }
+
+  .tactical-send-btn .send-btn-label {
+    display: none;
+  }
+
+  .tactical-send-btn {
+    padding: 0 16px;
   }
 }

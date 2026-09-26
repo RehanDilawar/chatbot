@@ -1,100 +1,260 @@
 import pmaLogo from "../assets/PMA_Kakul_logo.png";
+import {
+  TankIcon,
+  RocketIcon,
+  RadarIcon,
+  CadetInsigniaIcon,
+  ArmorShieldIcon,
+  TankBlueprintWatermark,
+  RocketBlueprintWatermark,
+} from "./MilitaryIcons";
 
-const features = [
+const capabilities = [
   {
-    icon: (
-      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-        <path d="M20 2H4a2 2 0 0 0-2 2v18l4-4h14a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2zm-2 12H6v-2h12zm0-3H6V9h12zm0-3H6V6h12z" />
-      </svg>
-    ),
-    title: "JMT Curriculum",
-    desc: "Covers the full Joint Military Training syllabus — computers, networks, OS, programming, and more.",
+    id: "tank-systems",
+    icon: <TankIcon size={34} />,
+    biIcon: "bi-shield-shaded",
+    code: "MBT-125 // ARMOR",
+    title: "Armored Warfare & Combat Computing",
+    desc: "Main battle tank ballistics, fire control systems, vehicle electronics, thermal targeting, and armored fighting vehicle telemetry.",
+    badge: "Armored Corps",
+    query: "Explain how modern tank fire control computers calculate ballistic lead and trajectory for smoothbore cannons.",
   },
   {
-    icon: (
-      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-        <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 4l5 2.18V11c0 3.5-2.33 6.79-5 7.93C9.33 17.79 7 14.5 7 11V7.18L12 5z" />
-      </svg>
-    ),
-    title: "Cyber & CI Aware",
-    desc: "Includes Counter-Intelligence awareness, hostile espionage, and cyber security guidelines.",
+    id: "rocket-systems",
+    icon: <RocketIcon size={34} />,
+    biIcon: "bi-rocket-takeoff",
+    code: "STRAT-VEC // 450KM",
+    title: "Rocketry & Ballistics Computing",
+    desc: "Strategic multi-stage rocketry, aerodynamic guidance vectors, solid propellant physics, artillery computing, and defense trajectory modeling.",
+    badge: "Artillery & Strategic",
+    query: "Explain the ballistic trajectory calculations and staging separation dynamics for solid propellant defense rockets.",
   },
   {
-    icon: (
-      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-        <path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm0 18a8 8 0 1 1 8-8 8 8 0 0 1-8 8zm-1-5h2v2h-2zm0-8h2v6h-2z" />
-      </svg>
-    ),
-    title: "Gemini-Powered",
-    desc: "Backed by Google Gemini with real-time streaming answers straight from PMA documentation.",
+    id: "cyber-ci",
+    icon: <ArmorShieldIcon size={32} />,
+    biIcon: "bi-shield-lock-fill",
+    code: "CI-SEC // DEFCON-A",
+    title: "Cyber Defense & CI Protocols",
+    desc: "Counter-Intelligence awareness, hostile foreign espionage countermeasures, operational secrecy, network intrusion detection, and data encryption.",
+    badge: "Counter-Intelligence",
+    query: "What are the core Counter-Intelligence guidelines and cyber hygiene protocols taught for cadet operational security?",
   },
   {
-    icon: (
-      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-        <path d="M12 3a9 9 0 1 0 0 18A9 9 0 0 0 12 3zm1 13h-2v-6h2zm0-8h-2V6h2z" />
-      </svg>
-    ),
-    title: "Syllabus & Beyond",
-    desc: "Answers official PMA Kakul curriculum and general educational questions with transparent citations and zero hallucinations.",
+    id: "jmt-core",
+    icon: <CadetInsigniaIcon size={32} />,
+    biIcon: "bi-mortarboard-fill",
+    code: "JMT-SYL // CADET",
+    title: "Joint Military Training Syllabus",
+    desc: "Core academic curriculum: Computer Architecture, Logic Gates, Operating Systems, Tactical Networks, Databases, HTML, and MS Office Suite.",
+    badge: "Academic Division",
+    query: "Provide a comprehensive overview of the Joint Military Training (JMT) computer syllabus and topics covered at PMA Kakul.",
+  },
+];
+
+const tacticalDirectives = [
+  {
+    label: "Tank Ballistics Computing",
+    icon: <TankIcon size={18} />,
+    prompt: "How does an MBT ballistic computer calculate atmospheric correction and target velocity?",
+  },
+  {
+    label: "Rocketry & Staging Vectors",
+    icon: <RocketIcon size={18} />,
+    prompt: "Describe the propulsion and trajectory calculations involved in multi-stage strategic rockets.",
+  },
+  {
+    label: "CI & Anti-Espionage Rules",
+    icon: <ArmorShieldIcon size={16} />,
+    prompt: "What are hostile intelligence collection techniques and how must Gentleman Cadets protect sensitive information?",
+  },
+  {
+    label: "Military Mesh Networks",
+    icon: <RadarIcon size={18} />,
+    prompt: "Explain tactical computer networks, packet switching, and secure topologies in military operations.",
   },
 ];
 
 const WelcomePage = ({ onDiveIn }) => {
   return (
-    <div className="welcome-page">
-      <div className="welcome-orb welcome-orb--1" aria-hidden="true" />
-      <div className="welcome-orb welcome-orb--2" aria-hidden="true" />
-      <div className="welcome-orb welcome-orb--3" aria-hidden="true" />
+    <div className="welcome-page tactical-military-theme">
+      {/* Sombre Tactical Grid Background Elements */}
+      <div className="tactical-grid-overlay" aria-hidden="true" />
+      <div className="tactical-vignette" aria-hidden="true" />
 
-      {/* PMA logo — top left */}
-      <img src={pmaLogo} alt="PMA Kakul Logo" className="welcome-corner-logo" />
+      {/* Sombre Blueprint Watermarks: Tank (Left) & Rocket (Right) */}
+      <TankBlueprintWatermark />
+      <RocketBlueprintWatermark />
 
-      <main className="welcome-hero">
-        <div className="welcome-icon-wrap" aria-hidden="true">
-          <div className="welcome-icon-ring" />
-          <div className="welcome-icon-ring welcome-icon-ring--2" />
-          <svg
-            className="welcome-bot-icon"
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 1024 1024"
-            fill="currentColor"
-          >
-            <path d="M738.3 287.6H285.7c-59 0-106.8 47.8-106.8 106.8v303.1c0 59 47.8 106.8 106.8 106.8h81.5v111.1c0 .7.8 1.1 1.4.7l166.9-110.6 41.8-.8h117.4l43.6-.4c59 0 106.8-47.8 106.8-106.8V394.5c0-59-47.8-106.9-106.8-106.9zM351.7 448.2c0-29.5 23.9-53.5 53.5-53.5s53.5 23.9 53.5 53.5-23.9 53.5-53.5 53.5-53.5-23.9-53.5-53.5zm157.9 267.1c-67.8 0-123.8-47.5-132.3-109h264.6c-8.6 61.5-64.5 109-132.3 109zm110-213.7c-29.5 0-53.5-23.9-53.5-53.5s23.9-53.5 53.5-53.5 53.5 23.9 53.5 53.5-23.9 53.5-53.5 53.5zM867.2 644.5V453.1h26.5c19.4 0 35.1 15.7 35.1 35.1v121.1c0 19.4-15.7 35.1-35.1 35.1h-26.5zM95.2 609.4V488.2c0-19.4 15.7-35.1 35.1-35.1h26.5v191.3h-26.5c-19.4 0-35.1-15.7-35.1-35.1zM561.5 149.6c0 23.4-15.6 43.3-36.9 49.7v44.9h-30v-44.9c-21.4-6.5-36.9-26.3-36.9-49.7 0-28.6 23.3-51.9 51.9-51.9s51.9 23.3 51.9 51.9z" />
-          </svg>
+      {/* Academy Crest / Header Logo */}
+      <div className="welcome-top-brand">
+        <img
+          src={pmaLogo}
+          alt="Pakistan Military Academy Kakul Logo"
+          className="welcome-academy-crest"
+        />
+        <div className="welcome-brand-text">
+          <span className="brand-sup">PAKISTAN MILITARY ACADEMY · KAKUL</span>
+          <span className="brand-motto">&ldquo;HAIDER KI TALWAR&rdquo; · EST. 1947</span>
+        </div>
+      </div>
+
+      {/* Hero Section */}
+      <main className="welcome-hero tactical-hero">
+        {/* Tactical Crosshair Reticle & Badge */}
+        <div className="tactical-emblem-wrap">
+          <div className="tactical-reticle-ring" />
+          <div className="tactical-reticle-ring tactical-reticle-ring--outer" />
+          <div className="tactical-corner-mark mark-tl" />
+          <div className="tactical-corner-mark mark-tr" />
+          <div className="tactical-corner-mark mark-bl" />
+          <div className="tactical-corner-mark mark-br" />
+
+          {/* Central Crest Icon with Tank & Rocket subtle accents */}
+          <div className="tactical-bot-crest">
+            <div className="crest-inner-orbit">
+              <TankIcon size={26} className="orbit-icon orbit-tank" />
+              <RocketIcon size={26} className="orbit-icon orbit-rocket" />
+            </div>
+            <CadetInsigniaIcon size={44} className="crest-insignia" />
+          </div>
         </div>
 
-        <p className="welcome-badge">Pakistan Military Academy · Kakul</p>
-        <h1 className="welcome-title">
-          GC Bot
-          <br />
-          <span className="welcome-title__accent">Gentleman Cadet Bot</span>
+        {/* Dignified Cadet Badge */}
+        <div className="tactical-badge">
+          <i className="bi bi-award-fill badge-gold-icon" />
+          <span>GENTLEMAN CADET INTEL TERMINAL</span>
+          <span className="badge-sep">/</span>
+          <span className="badge-status">JMT ACTIVE</span>
+        </div>
+
+        {/* Main Title */}
+        <h1 className="welcome-title tactical-title">
+          GC BOT
+          <span className="welcome-title__sub">
+            Gentleman Cadet Knowledge Terminal
+          </span>
         </h1>
-        <p className="welcome-subtitle">
-          Your intelligent assistant for the Joint Military Training curriculum
-          at PMA Kakul and educational inquiries. Ask about computers, networks,
-          programming, cyber security, MS Office, and academic subjects.
+
+        {/* Subtitle */}
+        <p className="welcome-subtitle tactical-subtitle">
+          An intelligent, disciplined tactical assistant tailored for Gentleman Cadets at
+          the <strong>Pakistan Military Academy Kakul</strong>. Authoritative guidance
+          across armored vehicle systems, strategic rocketry & ballistics, cyber defense,
+          counter-intelligence protocols, and the Joint Military Training curriculum.
         </p>
 
-        <button id="dive-in-btn" className="welcome-cta" onClick={onDiveIn}>
-          <span>Dive In</span>
-          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-            <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z" />
-          </svg>
-        </button>
+        {/* Action Directives */}
+        <div className="welcome-cta-group">
+          <button
+            id="dive-in-btn"
+            className="welcome-cta tactical-cta-primary"
+            onClick={() => onDiveIn && onDiveIn()}
+          >
+            <span className="cta-icon-left">
+              <i className="bi bi-terminal-fill" />
+            </span>
+            <span>INITIALIZE TERMINAL</span>
+            <span className="cta-icon-right">
+              <i className="bi bi-chevron-double-right" />
+            </span>
+          </button>
+        </div>
+
+        {/* Quick Tactical Mission Directives */}
+        <div className="tactical-quick-prompts">
+          <div className="quick-prompts-header">
+            <i className="bi bi-crosshair" />
+            <span>DIRECT MISSION INQUIRIES &middot; SELECT TO ENGAGE:</span>
+          </div>
+          <div className="quick-prompts-grid">
+            {tacticalDirectives.map((d, idx) => (
+              <button
+                key={idx}
+                className="tactical-prompt-chip"
+                onClick={() => onDiveIn && onDiveIn(d.prompt)}
+                title={`Ask: "${d.prompt}"`}
+              >
+                <span className="chip-icon">{d.icon}</span>
+                <span className="chip-label">{d.label}</span>
+                <i className="bi bi-arrow-up-right chip-arrow" />
+              </button>
+            ))}
+          </div>
+        </div>
       </main>
 
-      <section className="welcome-features" aria-label="Features">
-        {features.map((f) => (
-          <div key={f.title} className="welcome-card">
-            <div className="welcome-card__icon">{f.icon}</div>
-            <h3 className="welcome-card__title">{f.title}</h3>
-            <p className="welcome-card__desc">{f.desc}</p>
+      {/* Military Capability Modules (Cards) */}
+      <section className="welcome-features tactical-features-section" aria-label="Curriculum & Tactical Modules">
+        <div className="features-section-header">
+          <div className="section-title-wrap">
+            <span className="section-subtitle">TACTICAL DOMAINS &amp; SYLLABUS DIRECTORY</span>
+            <h2 className="section-title">Academy Knowledge Disciplines</h2>
           </div>
-        ))}
+          <div className="section-spec-pill">
+            <i className="bi bi-shield-check" /> ACCREDITED PMA CURRICULUM
+          </div>
+        </div>
+
+        <div className="tactical-cards-grid">
+          {capabilities.map((c) => (
+            <div
+              key={c.id}
+              className="welcome-card tactical-card"
+              onClick={() => onDiveIn && onDiveIn(c.query)}
+              role="button"
+              tabIndex={0}
+              onKeyDown={(e) => e.key === "Enter" && onDiveIn && onDiveIn(c.query)}
+            >
+              <div className="tactical-card__corner-accent" />
+              <div className="tactical-card__top">
+                <span className="tactical-card__code">{c.code}</span>
+                <span className="tactical-card__badge">
+                  <i className={`bi ${c.biIcon}`} /> {c.badge}
+                </span>
+              </div>
+
+              <div className="tactical-card__icon-row">
+                <div className="tactical-card__main-icon">{c.icon}</div>
+                <div className="tactical-card__sub-icon">
+                  <i className={`bi ${c.biIcon}`} />
+                </div>
+              </div>
+
+              <h3 className="welcome-card__title tactical-card__title">{c.title}</h3>
+              <p className="welcome-card__desc tactical-card__desc">{c.desc}</p>
+
+              <div className="tactical-card__footer">
+                <span className="action-hint">
+                  <i className="bi bi-chat-square-dots" /> Engage Advisor
+                </span>
+                <i className="bi bi-arrow-right-short card-arrow" />
+              </div>
+            </div>
+          ))}
+        </div>
       </section>
 
-      <footer className="welcome-footer">
-        <span>Pakistan Military Academy Kakul</span>
+      {/* Sombre Military Academy Footer */}
+      <footer className="welcome-footer tactical-footer">
+        <div className="tactical-footer-content">
+          <div className="footer-insignia-row">
+            <TankIcon size={20} className="footer-veh-icon" />
+            <span className="footer-dot">&bull;</span>
+            <RocketIcon size={20} className="footer-veh-icon" />
+            <span className="footer-dot">&bull;</span>
+            <CadetInsigniaIcon size={20} className="footer-veh-icon" />
+          </div>
+          <p className="footer-pma-text">
+            PAKISTAN MILITARY ACADEMY KAKUL &middot; DEPARTMENT OF COMPUTER SCIENCES &amp; IT
+          </p>
+          <p className="footer-sub-text">
+            DISCIPLINE &middot; VALOR &middot; INTEGRITY &middot; JOINT MILITARY TRAINING PROGRAM
+          </p>
+          <div className="footer-meta">
+            <span>GRID: KAKUL-HQ // CLASSIFICATION: ACADEMIC EDUCATION</span>
+          </div>
+        </div>
       </footer>
     </div>
   );

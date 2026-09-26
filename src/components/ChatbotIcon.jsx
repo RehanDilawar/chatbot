@@ -1,12 +1,55 @@
-const ChatBotIcon = () => {
+const ChatBotIcon = ({ size = 36, className = "" }) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      width="50"
-      height="50"
-      viewBox="0 0 1024 1024"
+      width={size}
+      height={size}
+      viewBox="0 0 40 40"
+      fill="none"
+      className={className}
+      aria-hidden="true"
     >
-      <path d="M738.3 287.6H285.7c-59 0-106.8 47.8-106.8 106.8v303.1c0 59 47.8 106.8 106.8 106.8h81.5v111.1c0 .7.8 1.1 1.4.7l166.9-110.6 41.8-.8h117.4l43.6-.4c59 0 106.8-47.8 106.8-106.8V394.5c0-59-47.8-106.9-106.8-106.9zM351.7 448.2c0-29.5 23.9-53.5 53.5-53.5s53.5 23.9 53.5 53.5-23.9 53.5-53.5 53.5-53.5-23.9-53.5-53.5zm157.9 267.1c-67.8 0-123.8-47.5-132.3-109h264.6c-8.6 61.5-64.5 109-132.3 109zm110-213.7c-29.5 0-53.5-23.9-53.5-53.5s23.9-53.5 53.5-53.5 53.5 23.9 53.5 53.5-23.9 53.5-53.5 53.5zM867.2 644.5V453.1h26.5c19.4 0 35.1 15.7 35.1 35.1v121.1c0 19.4-15.7 35.1-35.1 35.1h-26.5zM95.2 609.4V488.2c0-19.4 15.7-35.1 35.1-35.1h26.5v191.3h-26.5c-19.4 0-35.1-15.7-35.1-35.1zM561.5 149.6c0 23.4-15.6 43.3-36.9 49.7v44.9h-30v-44.9c-21.4-6.5-36.9-26.3-36.9-49.7 0-28.6 23.3-51.9 51.9-51.9s51.9 23.3 51.9 51.9z" />
+      {/* Outer Tactical Octagonal Shield */}
+      <path
+        d="M20 2L34 7V19C34 27.5 28 34.5 20 38C12 34.5 6 27.5 6 19V7L20 2Z"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinejoin="round"
+        fill="currentColor"
+        fillOpacity="0.2"
+      />
+
+      {/* Inner Shield Contour */}
+      <path
+        d="M20 6L30 10V18.5C30 25 25.5 30.5 20 33.5C14.5 30.5 10 25 10 18.5V10L20 6Z"
+        stroke="currentColor"
+        strokeWidth="1.2"
+        strokeLinejoin="round"
+        fill="currentColor"
+        fillOpacity="0.1"
+      />
+
+      {/* Military Cadet Honor Star */}
+      <path
+        d="M20 11L21.8 15.2H26.2L22.6 17.8L24 22L20 19.4L16 22L17.4 17.8L13.8 15.2H18.2L20 11Z"
+        fill="currentColor"
+      />
+
+      {/* Cadet Rank Chevrons */}
+      <path
+        d="M14 25L20 28.5L26 25"
+        stroke="currentColor"
+        strokeWidth="1.8"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M15 28.5L20 31.5L25 28.5"
+        stroke="currentColor"
+        strokeWidth="1.4"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
     </svg>
   );
 };

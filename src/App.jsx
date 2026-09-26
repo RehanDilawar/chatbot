@@ -4,7 +4,25 @@ import ChatMessage from "./components/ChatMessage";
 import Sidebar from "./components/Sidebar";
 import WelcomePage from "./components/WelcomePage";
 import pmaLogo from "./assets/PMA_Kakul_logo.png";
+import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
 import { useState, useRef, useEffect } from "react";
+
+const INITIAL_BOT_MESSAGE = `I am **GC Bot** (Gentleman Cadet Bot). My primary function is to serve as an intelligent assistant based on the Joint Military Training documentation provided for Pakistan Military Academy (PMA) Kakul, as well as educational inquiries.
+
+You can ask me about any of the subjects covered in the curriculum, including:
+
+- Introduction to Computers and Computer Organization
+- Number Systems and Logic Gates
+- Operating Systems and Mobile OS comparisons
+- Programming Languages (Machine, Assembly, Algorithmic, C, C++, Java, etc.)
+- Computer Networks and Internet Terminologies
+- Databases and Structured Query Language (SQL)
+- Web Publishing, HTML, Cloud Computing, AI, and Big Data
+- Microsoft Office Suite (Word, PowerPoint, and Excel tutorials and keyboard shortcuts)
+- CI (Counter Intelligence) Awareness, Hostile Espionage Efforts, and Cyber Security guidelines
+
+I can also assist with general educational, scientific, and technical questions outside the syllabus within my knowledge base. How can I assist you with your studies or documentation queries today?`;
 
 const App = () => {
   const chatBodyRef = useRef(null);
@@ -52,14 +70,14 @@ const App = () => {
         botResponse += chunk;
 
         if (!initialized) {
-          setChatHistory((history) => [
-            ...history.filter((msg) => msg.text !== "Thinking..."),
+          setChatHistory((hist) => [
+            ...hist.filter((msg) => msg.text !== "Thinking..."),
             { role: "model", text: botResponse },
           ]);
           initialized = true;
         } else {
-          setChatHistory((history) => {
-            const updatedHistory = [...history];
+          setChatHistory((hist) => {
+            const updatedHistory = [...hist];
             for (let i = updatedHistory.length - 1; i >= 0; i--) {
               if (updatedHistory[i].role === "model") {
                 updatedHistory[i] = { ...updatedHistory[i], text: botResponse };
@@ -72,10 +90,21 @@ const App = () => {
       }
     } catch (error) {
       console.error(error);
-      setChatHistory((history) => [
-        ...history.filter((msg) => msg.text !== "Thinking..."),
-        { role: "model", text: "Sorry, I couldn't process that right now." },
+      setChatHistory((hist) => [
+        ...hist.filter((msg) => msg.text !== "Thinking..."),
+        { role: "model", text: "Sorry, I couldn't process that transmission right now. Please verify network connectivity." },
       ]);
+    }
+  };
+
+  const handleDiveIn = (initialPrompt) => {
+    setShowWelcome(false);
+    if (initialPrompt && typeof initialPrompt === "string") {
+      setChatHistory((prev) => [...prev, { role: "user", text: initialPrompt }]);
+      setTimeout(() => {
+        setChatHistory((prev) => [...prev, { role: "model", text: "Thinking..." }]);
+        generatebotResponse([...chatHistory, { role: "user", text: initialPrompt }]);
+      }, 600);
     }
   };
 
@@ -92,38 +121,63 @@ const App = () => {
     <div className="container" data-theme={theme}>
       {showWelcome ? (
         <WelcomePage
-          onDiveIn={() => setShowWelcome(false)}
+          onDiveIn={handleDiveIn}
           theme={theme}
           setTheme={setTheme}
         />
       ) : (
         <>
           {/* Animated Sidebar */}
-          <Sidebar theme={theme} setTheme={setTheme} />
+          <Sidebar
+            theme={theme}
+            setTheme={setTheme}
+          />
 
-          <div className="chatbot-popup chatbot-popup--enter">
-            <div className="chat-header">
-              <img src={pmaLogo} alt="PMA Kakul Logo" className="header-logo" />
-              <div className="header-info">
-                <ChatBotIcon />
-                <h2 className="logo-text">GC Chatbot</h2>
+          <div className="chatbot-popup chatbot-popup--enter tactical-chat-popup">
+            {/* Sombre Tactical Grid Background in Chat */}
+            <div className="chat-grid-overlay" aria-hidden="true" />
+
+            <div className="chat-header tactical-chat-header">
+              <div className="header-left-zone">
+                <button
+                  className="tactical-back-btn"
+                  onClick={() => setShowWelcome(true)}
+                  title="Return to Welcome Page"
+                  aria-label="Return to Welcome Page"
+                >
+                  <i className="bi bi-chevron-left" />
+                  <span>Briefing</span>
+                </button>
+
+                <img src={pmaLogo} alt="PMA Kakul Logo" className="header-logo" />
+
+                <div className="header-info">
+                  <h2 className="logo-text">GC Chatbot</h2>
+                </div>
               </div>
             </div>
-            <div ref={chatBodyRef} className="chat-body">
-              <div className="message bot-message">
-                <ChatBotIcon />
-                <p className="message-text">
-                  Hello 🖐!
-                  <br />
-                  How can I help you today?
-                </p>
+
+            <div ref={chatBodyRef} className="chat-body tactical-chat-body">
+              {/* Opening greeting message of bot - no tag or username */}
+              <div className="message bot-message tactical-msg-wrapper">
+                <div className="bot-avatar-wrap">
+                  <ChatBotIcon size={34} />
+                </div>
+                <div className="message-container">
+                  <div className="message-text">
+                    <ReactMarkdown remarkPlugins={[remarkGfm]}>
+                      {INITIAL_BOT_MESSAGE}
+                    </ReactMarkdown>
+                  </div>
+                </div>
               </div>
 
               {chatHistory.map((chat, index) => (
                 <ChatMessage key={index} chat={chat} />
               ))}
             </div>
-            <div className="chat-footer">
+
+            <div className="chat-footer tactical-chat-footer">
               <ChatForm
                 chatHistory={chatHistory}
                 setChatHistory={setChatHistory}
